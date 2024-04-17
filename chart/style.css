@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container{
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.chart{
+    padding: 2rem;
+    border: 1px solid;
+    border-radius: 1rem;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.8);
+
+}
+
+.tabell{
+    padding: 2rem;
+    border: 1px solid;
+    border-radius: 1rem;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.8);
+
+}
