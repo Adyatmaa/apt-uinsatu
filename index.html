@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!--=============== REMIXICONS ===============-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+
+   <!--=============== SWIPER CSS ===============-->
+   <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="assets/css/styles.css">
+
+   <!--=============== TABEL ===============-->
+   <!-- CSS -->
+   <link rel="stylesheet" href="https://cdn.datatables.net/2.0.4/css/dataTables.dataTables.min.css">
+   <!-- Setup Script -->
+   <script defer src="https://code.jquery.com/jquery-3.7.1.js"></script>
+   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+   <script defer src="https://cdn.datatables.net/2.0.4/js/dataTables.js"></script>
+   <script defer src="https://cdn.datatables.net/2.0.4/js/dataTables.bootstrap5.js"></script>
+   <script defer src="scripttabel.js"></script>
+
+   <title>APT - Project</title>
+</head>
+
+<body>
+   <!--==================== HEADER ====================-->
+   <header class="header" id="header">
+      <nav class="nav container">
+         <a href="" class="nav__logo">
+            APT-Apps
+         </a>
+
+         <div class="nav__menu">
+            <ul class="nav__list">
+               <li class="nav__item">
+                  <a href="#" class="nav__link">
+                     <i class="ri-home-line"></i>
+                     <span>Beranda</span>
+                  </a>
+               </li>
+               <li class="nav__item">
+                  <a href="mahasiswa.html" class="nav__link">
+                     <i class="ri-graduation-cap-line"></i>
+                     <span>Mahasiswa</span>
+                  </a>
+               </li>
+               <li class="nav__item">
+                  <a href="" class="nav__link">
+                     <i class="ri-group-line"></i>
+                     <span>SDM</span>
+                  </a>
+               </li>
+               <li class="nav__item">
+                  <a href="" class="nav__link">
+                     <i class="ri-bar-chart-line"></i>
+                     <span>Akreditasi</span>
+                  </a>
+               </li>
+            </ul>
+         </div>
+
+         <div class="nav__actions">
+            <!-- Login -->
+            <i class="ri-login-box-line" id="login-btn"></i>
+         </div>
+      </nav>
+   </header>
+
+   <!--==================== LOGIN ====================-->
+   <div class="login grid" id="login-content">
+      <form action="" class="login__form grid">
+         <h3 class="login__title">Log In</h3>
+
+         <div class="login__group grid">
+            <div>
+               <label for="login-email" class="login__label">Email</label>
+               <input type="email" placeholder="Tulis Email Anda" id="login-email" class="login__input">
+            </div>
+            <div>
+               <label for="login-pass" class="login__label">Password</label>
+               <input type="password" placeholder="Tulis Password Anda" id="login-pass" class="login__input">
+            </div>
+
+            <button type="submit" class="login__button button">Log In</button>
+         </div>
+      </form>
+      <i class="ri-close-line login__close" id="login-close"></i>
+   </div>
+
+   <!--==================== MAIN ====================-->
+   <main class="main">
+      <!--==================== HOME ====================-->
+      <section class="home section" id="home">
+         <div class="home__container container grid">
+            <div class="home__data">
+               <h1 class="home__title">
+                  Success Starts <br> <span class="right__title">Where Unlimited</span>
+                  <br> Thinking Begins
+               </h1>
+            </div>
+            <div class="home__images">
+               <img src="assets/img/gambar2.jpg" alt="imege">
+               <img src="assets/img/gambar1.jpg" alt="imege">
+            </div>
+         </div>
+      </section>
+
+      <!--==================== SERVICES ====================-->
+      <section class="services section">
+         <div class="services__container container grid">
+            <article class="services__card">
+               <i class="ri-line-chart-line"></i>
+               <h3 class="services__title">Data Mahasiswa</h3>
+               <p class="services__desc">Mahasiswa Baru, Mahasiswa Aktif, Mahasiswa Tugas Akhir dan Mahasiswa Asing</p>
+            </article>
+            <article class="services__card">
+               <i class="ri-folder-5-line"></i>
+               <h3 class="services__title">Data Lulusan</h3>
+               <p class="services__desc">Mahasiswa Lulusan, Rasio Kelulusan Tepat Waktu dan Keberhasilan Studi</p>
+            </article>
+            <article class="services__card">
+               <i class="ri-team-line"></i>
+               <h3 class="services__title">Sumber Daya Manusia</h3>
+               <p class="services__desc">Dosen dan Tenaga Kependidikan</p>
+            </article>
+         </div>
+      </section>
+
+      <!--==================== FEATURED ====================-->
+      <!-- <section class="featured section" id="featured">
+
+      </section> -->
+
+      <!--==================== JURUSAN ====================-->
+      <section class="jurusan section" id="jurusan">
+         <h2 class="section__title">
+            Jurusan Terbaik
+         </h2>
+
+         <div class="jurusan__container container">
+            <div class="jurusan__swiper swiper">
+               <div class="swiper-wrapper">
+                  <article class="jurusan__card swiper-slide">
+                     <img src="assets/img/gambar4.jpg" alt="" class="jurusan__img">
+                     <h2 class="jurusan__title">Teknik Informatika</h2>
+                     <p class="jurusan__desc">
+                        Jurusan terbaik tahun 2026 dengan akreditasi A,
+                        dan banyak diminati oleh Mahasiswa Baru
+                     </p>
+                     <div class="jurusan__stars">
+                        <i class="ri-award-fill"></i>
+                        <i class="ri-award-fill"></i>
+                        <i class="ri-award-fill"></i>
+                        <i class="ri-award-fill"></i>
+                     </div>
+                  </article>
+                  <article class="jurusan__card swiper-slide">
+                     <img src="assets/img/gambar4.jpg" alt="" class="jurusan__img">
+                     <h2 class="jurusan__title">Teknik Informatika</h2>
+                     <p class="jurusan__desc">
+                        Jurusan terbaik tahun 2026 dengan akreditasi A,
+                        dan banyak diminati oleh Mahasiswa Baru
+                     </p>
+                     <div class="jurusan__stars">
+                        <i class="ri-award-fill"></i>
+                        <i class="ri-award-fill"></i>
+                        <i class="ri-award-fill"></i>
+                        <i class="ri-award-fill"></i>
+                     </div>
+                  </article>
+                  <article class="jurusan__card swiper-slide">
+                     <img src="assets/img/gambar4.jpg" alt="" class="jurusan__img">
+                     <h2 class="jurusan__title">Teknik Informatika</h2>
+                     <p class="jurusan__desc">
+                        Jurusan terbaik tahun 2026 dengan akreditasi A,
+                        dan banyak diminati oleh Mahasiswa Baru
+                     </p>
+                     <div class="jurusan__stars">
+                        <i class="ri-award-fill"></i>
+                        <i class="ri-award-fill"></i>
+                        <i class="ri-award-fill"></i>
+                        <i class="ri-award-fill"></i>
+                     </div>
+                  </article>
+                  <article class="jurusan__card swiper-slide">
+                     <img src="assets/img/gambar4.jpg" alt="" class="jurusan__img">
+                     <h2 class="jurusan__title">Teknik Informatika</h2>
+                     <p class="jurusan__desc">
+                        Jurusan terbaik tahun 2026 dengan akreditasi A,
+                        dan banyak diminati oleh Mahasiswa Baru
+                     </p>
+                     <div class="jurusan__stars">
+                        <i class="ri-award-fill"></i>
+                        <i class="ri-award-fill"></i>
+                        <i class="ri-award-fill"></i>
+                        <i class="ri-award-fill"></i>
+                     </div>
+                  </article>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== DISCOUNT ====================-->
+      <!-- <section class="discount section" id="discount">
+
+      </section> -->
+
+      <!--==================== NEW BOOKS ====================-->
+      <!-- <section class="new section" id="new">
+
+      </section> -->
+
+      <!--==================== JOIN ====================-->
+      <section class="join section">
+         <div class="join__container">
+            <img src="assets/img/gambar3.jpg" alt="imege" class="join__bg">
+
+            <div class="join__data container grid">
+               <h2 class="join__title section__title">
+                  Kontak Lebih Lanjut <br>
+                  Hubungi Kami
+               </h2>
+
+               <form action="" class="join__form">
+                  <input type="text" placeholder="Kirim Masukan Anda" class="join__input">
+                  <button type="submit" class="join__button button">Kirim</button>
+               </form>
+            </div>
+         </div>
+      </section>
+      
+   </main>
+
+   <!--==================== FOOTER ====================-->
+   <footer class="footer">
+      <div class="footer__container container grid">
+         <div>
+            <a href="" class="footer__logo">
+               APT-Apps
+            </a>
+            <p class="footer__desc">
+               Find and explore the best <br>
+               eBooks from all your <br>
+               favorite writers.
+            </p>
+         </div>
+
+         <div class="footer__data grid">
+            <div>
+               <h3 class="footer__title">About</h3>
+               <ul class="footer__links">
+                  <li>
+                     <a href="" class="footer__link">Awards</a>
+                  </li>
+                  <li>
+                     <a href="" class="footer__link">Awards</a>
+                  </li>
+                  <li>
+                     <a href="" class="footer__link">Awards</a>
+                  </li>
+                  <li>
+                     <a href="" class="footer__link">Awards</a>
+                  </li>
+               </ul>
+            </div>
+            <div>
+               <h3 class="footer__title">About</h3>
+               <ul class="footer__links">
+                  <li>
+                     <a href="" class="footer__link">Awards</a>
+                  </li>
+                  <li>
+                     <a href="" class="footer__link">Awards</a>
+                  </li>
+                  <li>
+                     <a href="" class="footer__link">Awards</a>
+                  </li>
+                  <li>
+                     <a href="" class="footer__link">Awards</a>
+                  </li>
+               </ul>
+            </div>
+            <div>
+               <h3 class="footer__title">About</h3>
+               <ul class="footer__links">
+                  <li>
+                     <a href="" class="footer__link">Awards</a>
+                  </li>
+                  <li>
+                     <a href="" class="footer__link">Awards</a>
+                  </li>
+                  <li>
+                     <a href="" class="footer__link">Awards</a>
+                  </li>
+                  <li>
+                     <a href="" class="footer__link">Terms Of Service</a>
+                  </li>
+               </ul>
+            </div>
+            <div>
+               <h3 class="footer__title">About</h3>
+               <ul class="footer__links">
+                  <li>
+                     <a href="" class="footer__link">Awards</a>
+                  </li>
+                  <li>
+                     <a href="" class="footer__link">Awards</a>
+                  </li>
+                  <li>
+                     <a href="" class="footer__link">Awards</a>
+                  </li>
+                  <li>
+                     <a href="" class="footer__link">Awards</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+
+      <span class="footer__copy">
+         &#169; UIN Maulana Malik Ibrahim Malang
+      </span>
+   </footer>
+
+   <!--========== SCROLL UP ==========-->
+   <a href="#" class="scrollup" id="scroll-up">
+      <i class="ri-arrow-up-line"></i>
+   </a>
+
+   <!--=============== SCROLLREVEAL ===============-->
+   <script src="assets/js/scrollreveal.min.js"></script>
+
+   <!--=============== SWIPER JS ===============-->
+   <script src="assets/js/swiper-bundle.min.js"></script>
+
+   <!--=============== MAIN JS ===============-->
+   <script src="assets/js/main.js"></script>
+</body>
+
+</html>
