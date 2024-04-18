@@ -27,7 +27,7 @@
    <header class="header" id="header">
       <nav class="nav container">
          <a href="" class="nav__logo">
-            APT-Apps
+            Satu-Angka
          </a>
 
          <div class="nav__menu">
@@ -60,9 +60,9 @@
                      <i class="ri-group-line"></i>
                      <span>SDM</span>
                      <ul class="nav__drop">
-                        <li><a href="" class="nav__down">Calon Mahasiswa</a></li>
-                        <li><a href="" class="nav__down">Mahasiswa Baru</a></li>
-                        <li><a href="" class="nav__down">Mahasiswa Aktif</a></li>
+                        <li><a href="esdm.html" class="nav__down">Calon Mahasiswa</a></li>
+                        <li><a href="esdm.html" class="nav__down">Mahasiswa Baru</a></li>
+                        <li><a href="esdm.html" class="nav__down">Mahasiswa Aktif</a></li>
                      </ul>
                   </a>
                </li>
@@ -265,7 +265,7 @@
                      </p>
                   </div>
                   <div class="container">
-                     <a href=""><button type="button" class="btn btn-primary"> Cari</button></a>
+                     <a href="pai.php"><button type="button" class="btn btn-primary"> Cari</button></a>
                   </div>
                </article>
             </div>

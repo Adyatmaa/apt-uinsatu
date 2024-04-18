@@ -27,7 +27,7 @@
    <header class="header" id="header">
       <nav class="nav container">
          <a href="" class="nav__logo">
-            APT-Apps
+            Satu-Angka
          </a>
 
          <div class="nav__menu">
@@ -43,15 +43,9 @@
                      <i class="ri-graduation-cap-line"></i>
                      <span>Mahasiswa</span>
                      <ul class="nav__drop">
-                        <li><a href="mahasiswa-drpdwn.php?page=calon" class="nav__down<?php if ($_GET['page'] == 'calon') {
-                                                                                          echo '__active';
-                                                                                       } ?>">Calon Mahasiswa</a></li>
-                        <li><a href="mahasiswa-drpdwn.php?page=baru" class="nav__down<?php if ($_GET['page'] == 'baru') {
-                                                                                          echo '__active';
-                                                                                       } ?>">Mahasiswa Baru</a></li>
-                        <li><a href="mahasiswa-drpdwn.php?page=aktif" class="nav__down<?php if ($_GET['page'] == 'aktif') {
-                                                                                          echo '__active';
-                                                                                       } ?>">Mahasiswa Aktif</a></li>
+                        <li><a href="mahasiswa-drpdwn.php?page=calon" class="nav__down">Calon Mahasiswa</a></li>
+                        <li><a href="mahasiswa-drpdwn.php?page=baru" class="nav__down">Mahasiswa Baru</a></li>
+                        <li><a href="mahasiswa-drpdwn.php?page=aktif" class="nav__down">Mahasiswa Aktif</a></li>
                      </ul>
                   </a>
                </li>
@@ -60,9 +54,9 @@
                      <i class="ri-group-line"></i>
                      <span>SDM</span>
                      <ul class="nav__drop">
-                        <li><a href="" class="nav__down">Calon Mahasiswa</a></li>
-                        <li><a href="" class="nav__down">Mahasiswa Baru</a></li>
-                        <li><a href="" class="nav__down">Mahasiswa Aktif</a></li>
+                        <li><a href="esdm.html" class="nav__down">Calon Mahasiswa</a></li>
+                        <li><a href="esdm.html" class="nav__down">Mahasiswa Baru</a></li>
+                        <li><a href="esdm.html" class="nav__down">Mahasiswa Aktif</a></li>
                      </ul>
                   </a>
                </li>
@@ -127,20 +121,10 @@
       <section class="penting section">
          <div class="penting__container container grid">
             <h1 class="penting__title">
-               <?php
-               if ($_GET['page'] == 'calon') {
-                  echo 'Data Calon Mahasiswa';
-               } elseif ($_GET['page'] == 'baru') {
-                  echo 'Data Mahasiswa Baru';
-               } elseif ($_GET['page'] == 'aktif') {
-                  echo 'Data Mahasiswa Aktif';
-               } else {
-                  echo 'Data Mahasiswa';
-               }
-               ?>
+               Data Mahasiswa Baru PAI
             </h1>
             <p class="penting__desc">
-               Data - data dari mahasiswa di Universitas kami ada dibawah ini :
+               Data - data dari mahasiswa jurusan Pendidikan Agama Islam di Universitas kami ada dibawah ini :
             </p>
             <div class="penting__wrap">
                <article class="penting__card">
@@ -190,82 +174,6 @@
                <article class="penting__card">
                   <div class="chart">
                      <canvas id="chartbatang" width="300" height="300"></canvas>
-                  </div>
-               </article>
-            </div>
-            <div class="penting__wrap">
-               <article class="penting__card">
-                  <div class="container">
-                     <h4>Data Calon Mahasiswa Berdasarkan Jurusan</h5>
-                  </div>
-                  <div class="container">
-                     <p>
-                        <label>Fakultas</label><br>
-                        <select name="prodi">
-                           <option value="test">--Pilih Disini--</option>
-                           <option value="FTIK">FTIK</option>
-                           <option value="Fasih">Fasih</option>
-                           <option value="FUAD">FUAD</option>
-                           <option value="FEBI">FEBI</option>
-                           <option value="PASCASARJANA">PASCASARJANA</option>
-                        </select>
-                     </p>
-                  </div>
-                  <div class="container">
-                     <p>
-                        <label>Program Studi</label><br>
-                        <select name="jurusan">
-                           <option value="test">--Pilih Disini--</option>
-                           <option value="PAI">PAI</option>
-                           <option value="PBA">PBA</option>
-                           <option value="TBI">TBI</option>
-                           <option value="PGMI">PGMI</option>
-                           <option value="MPI">MPI</option>
-                           <option value="IPS">IPS</option>
-                           <option value="TBIn">TBIn</option>
-                           <option value="Fisika">Fisika</option>
-                           <option value="Kimia">Kimia</option>
-                           <option value="HES">HES</option>
-                           <option value="HKI">HKI</option>
-                           <option value="HTN (IPEPA)">HTN (IPEPA)</option>
-                           <option value="IAT">IAT</option>
-                           <option value="FA (IPEPA)">FA (IPEPA)</option>
-                           <option value="TP (IPEPA)">TP (IPEPA)</option>
-                           <option value="KPI">KPI</option>
-                           <option value="BSA">BSA</option>
-                           <option value="BKI">BKI</option>
-                           <option value="SPI">SPI</option>
-                           <option value="SA">SA</option>
-                           <option value="PI">PI</option>
-                           <option value="IPII">IPII</option>
-                           <option value="MD">MD</option>
-                           <option value="IH">IH</option>
-                           <option value="PS">PS</option>
-                           <option value="ES">ES</option>
-                           <option value="AKS">AKS</option>
-                           <option value="Mazawa">Mazawa</option>
-                           <option value="MBS">MBS</option>
-                           <option value="MKS">MKS</option>
-                           <option value="Parsya">Parsya</option>
-                           <option value="MPI">MPI</option>
-                           <option value="HES - S2">HES - S2</option>
-                           <option value="IAT - S2">IAT - S2</option>
-                           <option value="PBA - S2">PBA - S2</option>
-                           <option value="PGMI - S2">PGMI - S2</option>
-                           <option value="AFI - S2">AFI - S2</option>
-                           <option value="ES - S2">ES - S2</option>
-                           <option value="HKI - S2">HKI - S2</option>
-                           <option value="TBI - S2">TBI - S2</option>
-                           <option value="TM - S2">TM - S2</option>
-                           <option value="SI - S2">SI - S2</option>
-                           <option value="MPI - S3">MPI - S3</option>
-                           <option value="SI - S3">SI - S3</option>
-                           <option value="PPG - PG">PPG - PG</option>
-                        </select>
-                     </p>
-                  </div>
-                  <div class="container">
-                     <a href=""><button type="button" class="btn btn-primary"> Cari</button></a>
                   </div>
                </article>
             </div>
