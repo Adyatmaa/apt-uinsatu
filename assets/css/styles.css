@@ -196,6 +196,12 @@ img {
   border-radius: 0.5rem;
 }
 
+.nav__down__active {
+  background-color: var(--title-color);
+  color: var(--white-color);
+  border-radius: 0.5rem;
+}
+
 /* Navigation for mobile devices */
 @media screen and (max-width: 1150px) {
   .nav__menu {
