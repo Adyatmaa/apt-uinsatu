@@ -42,7 +42,7 @@
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="#" class="nav__link">
+                        <a href="mahasiswa.html" class="nav__link">
                             <i class="ri-graduation-cap-line"></i>
                             <span>Mahasiswa</span>
                             <ul class="nav__drop">
@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="esdm.html" class="nav__link">
+                        <a href="#" class="nav__link">
                             <i class="ri-group-line"></i>
                             <span>SDM</span>
                             <ul class="nav__drop">
@@ -103,76 +103,73 @@
     <!--==================== MAIN ====================-->
     <main class="main">
         <!--==================== MAHASISWA ====================-->
-        <!-- <section class="home section" id="mahasiswa">
-            <div class="mahasiswa__container container grid">
+        <section class="home section" id="tendik">
+            <div class="tendik__container container grid">
                 <div class="mahasiswa__data">
-                    <h1 class="mahasiswa__title">
-                        Data Mahasiswa
+                    <h1 class="tendik__title">
+                        Data Tenaga Kependidikan
                     </h1>
-                    <p class="mahasiswa__desc">
-                        oke siap oke siap oke siap oke siap oke siap oke siap oke siap oke siap oke siap oke siap oke
-                        siap oke siap oke siap oke siap oke siap oke siap oke siap
+                    <p class="tendik__desc">
+                        Berikut data SDM Tenaga Kependidikan
                     </p>
                 </div>
-                <div class="mahasiswa__images">
-                    <img src="assets/img/gambar5.jpg" alt="imege">
-                </div>
+                <!-- Table -->
+                <table class="table table-striped rounded shadow">
+                    <thead>
+                        <tr>
+                            <th scope="col">Tahun</th>
+                            <th scope="col">Daya Tampung</th>
+                            <th scope="col">Pendaftar</th>
+                            <th scope="col">Lulus Seleksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row">TS-4 (2018)</td>
+                            <td>5.650</td>
+                            <td>66.364</td>
+                            <td>5.615</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">TS-3 (2019)</td>
+                            <td>4.800</td>
+                            <td>67.902</td>
+                            <td>4.779</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">TS-2 (2020)</td>
+                            <td>3.850</td>
+                            <td>61.643</td>
+                            <td>3.835</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">TS-1 (2021)</td>
+                            <td>4.600</td>
+                            <td>49.481</td>
+                            <td>4.563</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">TS (2022)</td>
+                            <td>4.200</td>
+                            <td>32.683</td>
+                            <td>4.124</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </section> -->
+        </section>
 
         <!--==================== PENTING ====================-->
         <section class="penting section">
             <div class="penting__container container grid">
                 <h1 class="penting__title">
-                     Data Mahasiswa
+                    Data Tahunan
                 </h1>
-                <p class="penting__desc">
-                    Data - data dari mahasiswa di Universitas kami ada dibawah ini :
-                </p>
                 <div class="penting__wrap">
                     <article class="penting__card">
-                        <table class="table table-striped rounded shadow">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Tahun</th>
-                                    <th scope="col">Daya Tampung</th>
-                                    <th scope="col">Pendaftar</th>
-                                    <th scope="col">Lulus Seleksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td scope="row">TS-4 (2018)</td>
-                                    <td>5.650</td>
-                                    <td>66.364</td>
-                                    <td>5.615</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TS-3 (2019)</td>
-                                    <td>4.800</td>
-                                    <td>67.902</td>
-                                    <td>4.779</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TS-2 (2020)</td>
-                                    <td>3.850</td>
-                                    <td>61.643</td>
-                                    <td>3.835</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TS-1 (2021)</td>
-                                    <td>4.600</td>
-                                    <td>49.481</td>
-                                    <td>4.563</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TS (2022)</td>
-                                    <td>4.200</td>
-                                    <td>32.683</td>
-                                    <td>4.124</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="chart">
+                            <canvas id="chartdonut" width="300" height="300"></canvas>
+                        </div>
                     </article>
                     <article class="penting__card">
                         <div class="chart">

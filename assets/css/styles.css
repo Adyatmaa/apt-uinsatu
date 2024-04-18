@@ -11,10 +11,10 @@
   --first-color: hsl(137, 83%, 35%);
   --title-color: hsl(126, 70%, 16%);
   --text-color: hsl(126, 16%, 45%);
-  --border-color: hsl(230, 50%, 90%);
+  --border-color: hsl(120, 49%, 90%);
   --white-color: hsl(0, 0%, 100%);
-  --body-color: hsl(230, 100%, 96%);
-  --container-color: hsl(230, 100%, 97%);
+  --body-color: hsl(123, 100%, 96%);
+  --container-color: hsl(116, 100%, 97%);
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -165,6 +165,35 @@ img {
   column-gap: .5rem;
   color: var(--first-color);
   font-weight: var(--font-medium);
+}
+
+.nav__drop {
+  position: absolute;
+  padding: 0.5rem;
+  margin: 0.1rem -0.5rem;
+  background-color: var(--white-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  display: none;
+}
+
+.nav__down {
+  color: var(--title-color);
+  padding: 0.4rem 0; 
+}
+
+.nav__item:hover .nav__drop {
+  display: block;
+}
+
+.nav__down {
+  display: flex;
+}
+
+.nav__down:hover {
+  background-color: var(--title-color);
+  color: var(--white-color);
+  border-radius: 0.5rem;
 }
 
 /* Navigation for mobile devices */
@@ -399,23 +428,38 @@ img {
 
 .penting__title {
   font-size: var(--h1-font-size);
+  text-align: center;
+}
+
+.penting__desc {
+  font-size: var(--small-font-size);
+  text-align: center;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
 }
 
 .penting__card {
-  width: 600px;
-  text-align: center;
+  /* width: 600px 600px; */
   margin: auto;
 }
 
-.tabel1 {
+.chart{
+  width: 100%;
   padding: 2rem;
-    border: 1px solid;
-    border-radius: 1rem;
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.8);
+  border: 1px solid;
+  border-radius: 1rem;
 }
 
-/*=============== NEW ===============*/
+.tabel {
+  /* border: 1px solid; */
+  border-radius: 16px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.8);
+}
 
+/*=============== TENDIK ===============*/
+.tendik__title {
+  font-size: var(--h1-font-size);
+}
 
 /*=============== JOIN ===============*/
 .join__container {
@@ -671,6 +715,10 @@ img {
     width: 350px;
   }
 
+  .nav__actions {
+    cursor: pointer;
+  }
+
   .services__container {
     grid-template-columns: repeat(3, max-content);
     justify-content: center;
@@ -691,6 +739,10 @@ img {
 
 /* For large devices */
 @media screen and (min-width: 1150px) {
+  .container {
+    margin-inline: auto;
+  }
+
   .section {
     padding-block: 7rem 2rem;
   }
@@ -698,6 +750,15 @@ img {
   .nav {
     height: calc(var(--header-height) + 2rem);
     justify-content: space-between;
+  }
+
+  .nav__menu {
+    /* width: 100%; */
+    /* display: inline-flex;
+    align-items: center; */
+    padding-top: 15px;
+    width: fit-content;
+    /* background-color: blueviolet; */
   }
 
   .nav__list {
@@ -762,8 +823,12 @@ img {
     margin-left: 2rem;
   }
 
+.services__card {
+  width: 220px;
+}
+
   .services__container {
-    column-gap: 10rem;
+    column-gap: 8rem;
   }
 
   .services__card i {
@@ -814,5 +879,11 @@ img {
 
   .show-scroll {
     bottom: 3rem;
+  }
+
+  @media screen and (min-width: 1220px) {
+    .container {
+      margin-inline: auto;
+    }
   }
 }
