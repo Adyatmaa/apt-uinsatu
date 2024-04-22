@@ -11,4 +11,12 @@ class Home extends BaseController
         echo view('welcome_message');
         echo view('admin_footer');
     }
+
+    public function inputAkre()
+    {
+        echo view('admin_header');
+        echo view('admin_nav');
+        echo view('admin_inputAkre');
+        echo view('admin_footer');
+    }
 }
