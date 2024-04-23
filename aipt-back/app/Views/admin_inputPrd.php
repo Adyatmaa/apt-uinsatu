@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Data Akreditasi</h1>
+                    <h1 class="m-0">Data Prodi</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= site_url('Home/index') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Akreditasi</li>
+                        <li class="breadcrumb-item active">Prodi</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -20,7 +20,7 @@
         <div class="container-fluid">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Input Data Akreditasi</h3>
+                    <h3 class="card-title">Input Data Prodi</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
@@ -32,26 +32,30 @@
                             <div class="form-group">
                                 <!-- <label for="exampleSelectRounded0">Flat <code>.rounded-0</code></label> -->
                                 <select class="custom-select rounded-1" id="exampleSelectRounded0">
-                                    <option>Value 1</option>
-                                    <option>Value 2</option>
-                                    <option>Value 3</option>
+                                    <?php
+                                    foreach ($faculty as $row) :
+                                    ?>
+                                        <option><?= $row->nama_fakultas ?></option>
+                                    <?php
+                                    endforeach
+                                    ?>
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="exampleInputPassword1">Prodi</label>
-                            <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                             <div class="form-group">
-                                <!-- <label for="exampleSelectRounded0">Flat <code>.rounded-0</code></label> -->
+                                <label for="exampleSelectRounded0">Flat <code>.rounded-0</code></label>
                                 <select class="custom-select rounded-1" id="exampleSelectRounded0">
                                     <option>Value 1</option>
                                     <option>Value 2</option>
                                     <option>Value 3</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
-                            <label for="exampleInputFile">Upload File (.csv)</label>
+                            <label for="exampleInputFile">File input (.csv)</label>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="exampleInputFile">
@@ -62,7 +66,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <!-- /.card-body -->
 

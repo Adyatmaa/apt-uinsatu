@@ -40,7 +40,7 @@ use stdClass;
  *      - allow intermingling calls to the builder
  *      - removes the need to use Result object directly in most cases
  *
- * @property-read BaseConnection $db
+ * @property BaseConnection $db
  *
  * @method $this groupBy($by, ?bool $escape = null)
  * @method $this groupEnd()

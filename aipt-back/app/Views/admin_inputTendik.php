@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Data Akreditasi</h1>
+                    <h1 class="m-0">Data Tenaga Didik</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= site_url('Home/index') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Akreditasi</li>
+                        <li class="breadcrumb-item active">Tenaga Didik</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -20,7 +20,7 @@
         <div class="container-fluid">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Input Data Akreditasi</h3>
+                    <h3 class="card-title">Input Data Tenaga Didik</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
@@ -51,7 +51,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputFile">Upload File (.csv)</label>
+                            <label for="exampleInputFile">File input</label>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="exampleInputFile">
@@ -62,7 +62,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <!-- /.card-body -->
 

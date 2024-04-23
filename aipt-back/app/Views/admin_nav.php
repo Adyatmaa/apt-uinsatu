@@ -10,7 +10,7 @@
                   <!-- <img src="dist/img/uinma.png" class="img-circle elevation-2" alt="User Image"> -->
               </div>
               <div class="info">
-                  <a class="d-block">SatuAngka</a>
+                  <a class="d-block">Admin</a>
               </div>
           </div>
 
@@ -32,13 +32,56 @@
                   <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                   <li class="nav-item">
-                      <a href="#" class="nav-link">
+                      <a href="<?= site_url('Home/index') ?>" class="nav-link">
                           <i class="nav-icon fas fa-th"></i>
                           <!-- <i class="nav-icon far fa-calendar-alt"></i> -->
                           <p>
                               Home
                           </p>
                       </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="#" class="nav-link ">
+                          <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
+                          <i class="nav-icon fas fa-edit"></i>
+                          <p>
+                              Input 
+                              <i class="right fas fa-angle-left"></i>
+                              <!-- <span class="badge badge-info right">4</span> -->
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview"> 
+                          <li class="nav-item">
+                              <!-- <a href="<?= site_url('Home/inputAkre') ?>" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Input Akreditasi</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="<?= site_url('Home/inputFak') ?>" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Data Fakultas</p>
+                              </a>
+                          </li> -->
+                          <li class="nav-item">
+                              <a href="<?= site_url('Home/inputPrd') ?>" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Input Data Prodi</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="<?= site_url('Home/inputMhs') ?>" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Input Data Mahasiswa</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="<?= site_url('Home/inputTendik') ?>" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Input Data Tenaga Didik</p>
+                              </a>
+                          </li>
+                      </ul>
                   </li>
                   <li class="nav-item">
                       <a href="#" class="nav-link ">
@@ -52,31 +95,25 @@
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="<?=site_url('Home/inputAkre')?>" class="nav-link">
-                                  <i class="far fa-circle nav-icon"></i>
-                                  <p>Input Akreditasi</p>
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                              <a href="" class="nav-link">
+                              <a href="<?= site_url('Home/viewFak') ?>" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Data Fakultas</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="" class="nav-link">
+                              <a href="<?= site_url('Home/inputPrd') ?>" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Data Prodi</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="<?=site_url('Home/inputAkre')?>" class="nav-link">
+                              <a href="<?= site_url('Home/inputMhs') ?>" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Data Mahasiswa</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="" class="nav-link">
+                              <a href="<?= site_url('Home/inputTendik') ?>" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Data Tenaga Didik</p>
                               </a>
