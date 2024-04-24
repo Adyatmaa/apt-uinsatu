@@ -2,7 +2,12 @@
 
 namespace App\Controllers;
 
+use App\Models\MProdi;
 use App\Models\MFakultas;
+use PhpOffice\PhpSpreadsheet\Reader\Csv;
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
+
+use function PHPUnit\Framework\returnSelf;
 
 class Home extends BaseController
 {
@@ -84,5 +89,56 @@ class Home extends BaseController
         $table = 'm_fakultas';
         $fakultas->insertFak($table, $data);
         return redirect()->to(site_url('Home/inputFak'));
+    }
+
+    public function insertPrd()
+    {
+        $prodi = new MProdi();
+        $table = 'm_prodi';
+        if ($this->request->getMethod() == "POST") {
+            $rules = $this->validate([
+                'filename' => 'uploaded[filename]|max_size[filename,500]|ext_in[filename,csv,xlsx]',
+            ]);
+            if ($rules == true) {
+                $filename = $this->request->getFile('filename');
+                $name = $filename->getName();
+                $tmpname = $filename->getTempName();
+                $arr_file = explode(".", $name);
+                $extension = end($arr_file);
+                if ('csv' == $extension) {
+                    $reader = new Csv();
+                } else {
+                    $reader = new Xlsx();
+                }
+                $spreadsheet = $reader->load($tmpname);
+                $sheet = $spreadsheet->getActiveSheet()->toArray();
+                if (!empty($sheet)) {
+                    for ($i = 1; $i < count($sheet); $i++) {
+                        $nama_prodi = $sheet[$i][0];
+                        $id_jenjang = $sheet[$i][1];
+                        $id_fakultas = $sheet[$i][2];
+                        $sk_pendirian = $sheet[$i][3];
+                        $id_akreditasi = $sheet[$i][4];
+                        $bukti_akreditasi = $sheet[$i][5];
+
+                        $data = [
+                            'nama_prodi' => $nama_prodi,
+                            'id_jenjang' => $id_jenjang,
+                            'id_fakultas' => $id_fakultas,
+                            'sk_pendirian' => $sk_pendirian,
+                            'id_akreditasi' => $id_akreditasi,
+                            'bukti_akreditasi' => $bukti_akreditasi
+                        ];
+                        $prodi->insertPrd($table, $data);
+
+                        // return redirect()->to(site_url('Home/inputPrd'));
+                    }
+                } else {
+                    return redirect()->to(site_url('Home/inputPrd'));
+                }
+                return redirect()->to(site_url('Home/inputPrd'));
+            }
+            return redirect()->to(site_url('Home/inputPrd'));
+        }
     }
 }
