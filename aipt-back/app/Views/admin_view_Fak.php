@@ -31,7 +31,8 @@
                     <thead>
                         <tr>
                             <th style="width: 10px">No</th>
-                            <th>Nama Fakultas</th>
+                            <!-- <th>Nama Fakultas</th> -->
+                            <th><?php $message ?></th>
                         </tr>
                     </thead>
                     <tbody>
