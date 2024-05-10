@@ -25,7 +25,9 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="#" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('prodi.insert') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('POST')
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Fakultas</label>
@@ -47,7 +49,8 @@
                                 <label for="exampleInputFile">File input (.csv)</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="filename" id="filename">
+                                        <input type="file" accept=".csv" class="custom-file-input" name="file"
+                                            id="file" required>
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
                                     {{-- <div class="input-group-append">

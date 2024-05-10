@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,6 @@ Route::get('input-mahasiswa', [PageController::class, 'pageInputMahasiswa'])->na
 Route::get('input-tenaga-pendidikan', [PageController::class, 'pageInputTendik'])->name('pageInputTendik');
 
 Route::get('data-fakultas', [PageController::class, 'pageDataFakultas'])->name('pageDataFakultas');
+Route::get('data-program-studi', [PageController::class, 'pageDataProdi'])->name('pageDataProdi');
+
+Route::post('input-prodi', [ProdiController::class, 'insertProdi'])->name('prodi.insert');

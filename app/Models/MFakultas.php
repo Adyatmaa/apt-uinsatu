@@ -14,7 +14,12 @@ class MFakultas extends Model
     protected $updatedAt = 'update_date';
     protected $fillable = [
         'nama_fakultas',
-        'created_date', 
-        'update_dage'
+        'created_date',
+        'update_date'
     ];
+
+    public function prodi()
+    {
+        return $this->hasMany(MProdi::class, 'id_fakultas');
+    }
 }
