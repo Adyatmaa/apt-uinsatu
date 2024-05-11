@@ -19,7 +19,12 @@ use Illuminate\Support\Facades\Route;
 //     return view('dashboard');
 // });
 
-Route::get('/', [PageController::class, 'dashboard'])->name('dashboard');
+Route::post('adReg', [PageController::class, 'adReg'])->name('adReg');
+Route::post('adLoggingIn', [PageController::class, 'adLoggingIn'])->name('adLoggingIn');
+
+Route::get('dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+Route::get('register', [PageController::class, 'register'])->name('register');
+Route::get('/', [PageController::class, 'login'])->name('login');
 Route::get('input-prodi', [PageController::class, 'pageInputProdi'])->name('pageInputProdi');
 Route::get('input-mahasiswa', [PageController::class, 'pageInputMahasiswa'])->name('pageInputMahasiswa');
 Route::get('input-tenaga-pendidikan', [PageController::class, 'pageInputTendik'])->name('pageInputTendik');

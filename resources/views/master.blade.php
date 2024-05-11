@@ -44,7 +44,8 @@
     <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->
         <li class="nav-item">
-            <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+            <a class="btn btn-danger mx-3" href="#">Logout</a>
+            {{-- <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                 <i class="fas fa-search"></i>
             </a>
             <div class="navbar-search-block">
@@ -62,7 +63,7 @@
                         </div>
                     </div>
                 </form>
-            </div>
+            </div> --}}
         </li>
 
     </ul>
