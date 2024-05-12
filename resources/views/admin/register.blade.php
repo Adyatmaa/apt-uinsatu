@@ -38,16 +38,18 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{route('adReg')}}" method="POST">
+            <form action="{{ route('adReg') }}" method="POST">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Name</label>
-                        <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+                        <input type="text" name="name" class="form-control" id="exampleInputEmail1"
+                            placeholder="Enter name">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                            placeholder="Enter email">
                     </div>
                     {{-- <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
@@ -59,7 +61,7 @@
 
                 <div class="card-footer bg-white">
                     <div class="form-group text-center">
-                        <h6>Already have an account</h6><a href="{{route('login')}}">Log In Here</a>
+                        <h6>Already have an account</h6><a href="{{ route('login') }}">Log In Here</a>
                     </div>
                 </div>
             </form>

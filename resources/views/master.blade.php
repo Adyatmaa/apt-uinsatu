@@ -44,7 +44,7 @@
     <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->
         <li class="nav-item">
-            <a class="btn btn-danger mx-3" href="#">Logout</a>
+            <a class="btn btn-danger mx-3" href="{{ route('logout') }}">Logout</a>
             {{-- <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                 <i class="fas fa-search"></i>
             </a>

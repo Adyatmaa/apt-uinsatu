@@ -72,6 +72,12 @@ class PageController extends Controller
             ->first();
     }
 
+    public function logout()
+    {
+        Auth::logout();
+        return redirect(route('login'))->with('logout', 'You have logged out');
+    }
+
     function pageInputProdi()
     {
         $faculty = MFakultas::all();

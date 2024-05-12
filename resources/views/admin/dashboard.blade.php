@@ -7,7 +7,8 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1 class="m-0">Dashboard</h1>
-                        {{session('user.nama_user')}}
+                        <h6>Howdy, {{session('user.nama_user')}}</h6>
+                        {{-- @dd(session('user.nama_user')) --}}
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">

@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('adReg', [PageController::class, 'adReg'])->name('adReg');
 Route::post('adLoggingIn', [PageController::class, 'adLoggingIn'])->name('adLoggingIn');
 
+Route::get('logout', [PageController::class, 'logout'])->name('logout');
 Route::get('dashboard', [PageController::class, 'dashboard'])->name('dashboard');
 Route::get('register', [PageController::class, 'register'])->name('register');
 Route::get('/', [PageController::class, 'login'])->name('login');
