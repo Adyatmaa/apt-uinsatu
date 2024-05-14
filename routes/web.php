@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\TendikController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,3 +40,4 @@ Route::get('data-pendidikan-terakhir', [PageController::class, 'pageDataPendAkhi
 Route::get('data-jabatan-tendik', [PageController::class, 'pageDataJbTendik'])->name('pageDataJbTendik');
 
 Route::post('input-prodi', [ProdiController::class, 'insertProdi'])->name('prodi.insert');
+Route::post('input-tendik', [TendikController::class, 'insertTendik'])->name('tendik.insert');
