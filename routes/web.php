@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\TendikController;
@@ -41,3 +42,4 @@ Route::get('data-jabatan-tendik', [PageController::class, 'pageDataJbTendik'])->
 
 Route::post('input-prodi', [ProdiController::class, 'insertProdi'])->name('prodi.insert');
 Route::post('input-tendik', [TendikController::class, 'insertTendik'])->name('tendik.insert');
+Route::post('input-mahasiswa', [MahasiswaController::class, 'insertMahasiswa'])->name('mahasiswa.insert');

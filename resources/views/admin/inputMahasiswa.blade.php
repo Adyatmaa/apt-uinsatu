@@ -25,7 +25,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="" method="">
+                    <form action="{{ route('mahasiswa.insert') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
@@ -48,7 +48,8 @@
                                 <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
                                 <div class="form-group">
                                     <!-- <label for="exampleSelectRounded0">Flat <code>.rounded-0</code></label> -->
-                                    <select class="custom-select rounded-1" id="exampleSelectRounded0">
+                                    <select class="custom-select rounded-1" id="exampleSelectRounded0"
+                                        name="statusMahasiswa">
                                         <option value="1">Calon Mahasiswa</option>
                                         <option value="2">Mahasiswa Aktif</option>
                                         <option value="3">Mahasiswa Asing</option>
@@ -61,7 +62,8 @@
                                 <label for="exampleInputFile">File input</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                                        <input type="file" accept=".csv" class="custom-file-input" id="exampleInputFile"
+                                            name="file" required>
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
                                 </div>

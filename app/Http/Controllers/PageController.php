@@ -34,6 +34,8 @@ class PageController extends Controller
         $user->is_admin = 1;
         $user->created_by = 1;
         $user->create_date = now();
+        $user->updated_by = 1;
+        $user->updated_date = now();
         $user->save();
 
         return redirect('/');
@@ -116,7 +118,7 @@ class PageController extends Controller
         $jenjang = MJenjang::all();
         return view('admin.dataJenjang', compact('jenjang'));
     }
-    
+
     function pageDataJbTendik()
     {
         $jabatan = MJabatan_tendik::all();
@@ -128,7 +130,7 @@ class PageController extends Controller
         $jabatan = MJabatan_aka_dsn::all();
         return view('admin.dataJbatanAkadDosen', compact('jabatan'));
     }
-    
+
     function pageDataPendAkhir()
     {
         $pendidikan = MPendidikan_terakhir::all();

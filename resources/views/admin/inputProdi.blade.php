@@ -49,7 +49,7 @@
                                 <label for="">*Catatan</label>
                                 <p>Untuk melihat ID dari Fakultas dan Jenjang, Silahkan ke halaman <a
                                         href="{{ route('pageDataFakultas') }}">Fakultas</a> dan <a
-                                        href="pageDataJenjang">Jenjang</a></p>
+                                        href="{{ route('pageDataJenjang') }}">Jenjang</a></p>
                             </div>
                         </div>
 
