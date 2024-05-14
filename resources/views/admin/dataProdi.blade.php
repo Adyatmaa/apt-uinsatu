@@ -30,11 +30,11 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th style="width: 10px">No</th>
-                                <th>Nama Program Studi</th>
-                                <th>Jenjang</th>
-                                <th>Fakultas</th>
-                                <th>Akreditasi</th>
+                                <th class="text-center" style="width: 6%">ID Program Studi</th>
+                                <th class="text-center">Nama Program Studi</th>
+                                <th class="text-center">Jenjang</th>
+                                <th class="text-center">Fakultas</th>
+                                <th class="text-center">Akreditasi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,7 +44,7 @@
                         foreach ($prodi as $row) : $no++;
                         ?>
                             <tr>
-                                <th><?= $no ?></th>
+                                <th class="text-center"><?= $row->id_prodi ?></th>
                                 <td><?= $row->nama_prodi ?></td>
                                 <td><?= $row->jenjang->nama_jenjang ?></td>
                                 <td><?= $row->fakultas->nama_fakultas ?></td>

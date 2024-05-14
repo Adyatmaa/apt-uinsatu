@@ -28,28 +28,10 @@
                     <form>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Fakultas</label>
-                                <!-- <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"> -->
-                                <div class="form-group">
-                                    <!-- <label for="exampleSelectRounded0">Flat <code>.rounded-0</code></label> -->
-                                    <select class="custom-select rounded-1" id="exampleSelectRounded0">
-                                        <option>Value 1</option>
-                                        <option>Value 2</option>
-                                        <option>Value 3</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Prodi</label>
-                                <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
-                                <div class="form-group">
-                                    <!-- <label for="exampleSelectRounded0">Flat <code>.rounded-0</code></label> -->
-                                    <select class="custom-select rounded-1" id="exampleSelectRounded0">
-                                        <option>Value 1</option>
-                                        <option>Value 2</option>
-                                        <option>Value 3</option>
-                                    </select>
-                                </div>
+                                <p>Silahkan input data Tenaga Didik sesusai dengan
+                                    <a href="{{ asset('assets/file/tendik.csv') }}">template</a>
+                                    yang telah tersedia
+                                </p>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">File input</label>
@@ -62,6 +44,12 @@
                                         <span class="input-group-text">Upload</span>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="mt-4">
+                                <label for="">*Catatan</label>
+                                <p>Untuk melihat ID dari Jabatan Tenaga Didik , Silahkan kehalaman
+                                    <a href="{{ route('pageDataJbTendik') }}">Jabatan Tenaga Didik</a>
+                                </p>
                             </div>
                         </div>
                         <!-- /.card-body -->

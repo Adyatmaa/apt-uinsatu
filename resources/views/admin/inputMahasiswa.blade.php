@@ -25,29 +25,35 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form>
+                    <form action="" method="">
+                        @csrf
                         <div class="card-body">
-                            <!-- <div class="form-group">
-                                                    <label for="exampleInputEmail1">Fakultas</label>
-                                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                                    <div class="form-group">
-                                                        <label for="exampleSelectRounded0">Flat <code>.rounded-0</code></label>
-                                                        <select class="custom-select rounded-1" id="exampleSelectRounded0">
-                                                            <option>Value 1</option>
-                                                            <option>Value 2</option>
-                                                            <option>Value 3</option>
-                                                        </select>
-                                                    </div>
-                                                </div> -->
                             <div class="form-group">
+                                <p>Silahkan input data mahasiswa per prodi sesusai dengan template
+                                    yang telah tersedia</p>
+                                <p>Unduh template <a href="{{ asset('assets/file/mhs.zip') }}">disini</a></p>
                                 <label for="exampleInputPassword1">Prodi</label>
                                 <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
                                 <div class="form-group">
                                     <!-- <label for="exampleSelectRounded0">Flat <code>.rounded-0</code></label> -->
                                     <select class="custom-select rounded-1" id="exampleSelectRounded0">
-                                        <option>Value 1</option>
-                                        <option>Value 2</option>
-                                        <option>Value 3</option>
+                                        @foreach ($prodi as $row)
+                                            <option value="{{ $row->id_prodi }}">{{ $row->nama_prodi }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Status Mahasiswa</label>
+                                <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
+                                <div class="form-group">
+                                    <!-- <label for="exampleSelectRounded0">Flat <code>.rounded-0</code></label> -->
+                                    <select class="custom-select rounded-1" id="exampleSelectRounded0">
+                                        <option value="1">Calon Mahasiswa</option>
+                                        <option value="2">Mahasiswa Aktif</option>
+                                        <option value="3">Mahasiswa Asing</option>
+                                        <option value="4">Sudah Lulus</option>
+                                        <option value="5">Sedang Menjalani Tugas Akhir</option>
                                     </select>
                                 </div>
                             </div>
@@ -58,10 +64,15 @@
                                         <input type="file" class="custom-file-input" id="exampleInputFile">
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Upload</span>
-                                    </div>
                                 </div>
+                            </div>
+                            <div class="mt-4">
+                                <label class="mb-3" for="">*Catatan</label>
+                                <p>Sebelum mengupload Data Mahasiswa, Harap upload data <a
+                                        href="{{ route('pageInputProdi') }}">Prodi</a> terlebih dahulu</p>
+                                <p>Untuk melihat ID dari Fakultas dan Jenjang, Silahkan ke halaman <a
+                                        href="{{ route('pageDataFakultas') }}">Fakultas</a> dan <a
+                                        href="pageDataJenjang">Jenjang</a></p>
                             </div>
                         </div>
                         <!-- /.card-body -->

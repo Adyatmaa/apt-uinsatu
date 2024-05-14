@@ -1,0 +1,12 @@
+nama_prodi,id_jenjang,id_fakultas,sk_pendirian,id_akreditasi,bukti_akreditasi
+PAI,1,3,TRUE,2,TRUE
+PBA,1,3,TRUE,2,TRUE
+TBI,1,3,TRUE,2,TRUE
+PGMI,1,3,TRUE,3,TRUE
+MPI,1,3,TRUE,3,TRUE
+IPS,1,3,TRUE,3,TRUE
+TBIn,1,3,TRUE,3,TRUE
+Fisika,1,3,TRUE,5,TRUE
+Kimia,1,3,TRUE,5,TRUE
+HES,1,4,TRUE,3,TRUE
+HKI,1,4,TRUE,2,TRUE

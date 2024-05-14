@@ -141,6 +141,12 @@
                                 <p>Input Data Tenaga Didik</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pageInputDosen') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Input Data Dosen</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -155,6 +161,12 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="{{ route('pageDataJenjang') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Jenjang</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('pageDataFakultas') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Fakultas</p>
@@ -164,6 +176,18 @@
                             <a href="{{ route('pageDataProdi') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Prodi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pageDataPendAkhir') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Pendidikan Terakhir</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pageDataJbAkaDsn') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Jabatan Akademik Dosen</p>
                             </a>
                         </li>
                         <li class="nav-item">

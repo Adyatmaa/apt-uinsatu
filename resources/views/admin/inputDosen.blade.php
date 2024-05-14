@@ -6,12 +6,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Input Data Prodi</h1>
+                        <h1 class="m-0">Data Dosen</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Input Prodi</li>
+                            <li class="breadcrumb-item active">Dosen</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -21,37 +21,40 @@
             <div class="container-fluid">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Input Data Prodi</h3>
+                        <h3 class="card-title">Input Data Dosen</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="{{ route('prodi.insert') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        @method('POST')
+                    <form>
                         <div class="card-body">
                             <div class="form-group">
-                                <p>Silahkan input data mahasiswa per prodi sesusai dengan <a
-                                        href="{{ asset('assets/file/template-prodi.csv') }}">template</a>
-                                    yang telah tersedia</p>
-
+                                <p>Silahkan input data Dosen sesusai dengan
+                                    <a href="{{ asset('assets/file/dosen.csv') }}">template</a>
+                                    yang telah tersedia
+                                </p>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputFile">File input (.csv)</label>
+                                <label for="exampleInputFile">File input</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" accept=".csv" class="custom-file-input" name="file"
-                                            id="file" required>
+                                        <input type="file" class="custom-file-input" id="exampleInputFile">
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Upload</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="mt-4">
                                 <label for="">*Catatan</label>
-                                <p>Untuk melihat ID dari Fakultas dan Jenjang, Silahkan ke halaman <a
-                                        href="{{ route('pageDataFakultas') }}">Fakultas</a> dan <a
-                                        href="pageDataJenjang">Jenjang</a></p>
+                                <p>Untuk melihat ID dari Prodi, Jabatan Akademik dan Pendidikan Terakhir, Silahkan ke
+                                    halaman <a href="{{ route('pageDataProdi') }}">Prodi</a> ,
+                                    <a href="{{ route('pageDataJbAkaDsn') }}">Jabatan Akademik Dosen </a> dan
+                                    <a href="{{ route('pageDataPendAkhir') }}">Pendidikan Akhir</a>
+                                </p>
                             </div>
                         </div>
+                        <!-- /.card-body -->
 
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Submit</button>

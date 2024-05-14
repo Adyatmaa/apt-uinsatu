@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\jabatan_aka_dsn;
 use App\Models\MFakultas;
+use App\Models\MJabatan_aka_dsn;
+use App\Models\MJabatan_tendik;
+use App\Models\MJenjang;
+use App\Models\MPendidikan_terakhir;
 use App\Models\MProdi;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -86,7 +91,8 @@ class PageController extends Controller
 
     function pageInputMahasiswa()
     {
-        return view('admin.inputMahasiswa');
+        $prodi = MProdi::all();
+        return view('admin.inputMahasiswa', compact('prodi'));
     }
 
     function pageInputTendik()
@@ -94,10 +100,39 @@ class PageController extends Controller
         return view('admin.inputTendik');
     }
 
+    function pageInputDosen()
+    {
+        return view('admin.inputDosen');
+    }
+
     function pageDataFakultas()
     {
         $faculty = MFakultas::all();
         return view('admin.dataFakultas', compact('faculty'));
+    }
+
+    function pageDataJenjang()
+    {
+        $jenjang = MJenjang::all();
+        return view('admin.dataJenjang', compact('jenjang'));
+    }
+    
+    function pageDataJbTendik()
+    {
+        $jabatan = MJabatan_tendik::all();
+        return view('admin.dataJbTendik', compact('jabatan'));
+    }
+
+    function pageDataJbAkaDsn()
+    {
+        $jabatan = MJabatan_aka_dsn::all();
+        return view('admin.dataJbatanAkadDosen', compact('jabatan'));
+    }
+    
+    function pageDataPendAkhir()
+    {
+        $pendidikan = MPendidikan_terakhir::all();
+        return view('admin.dataPendidikanTerakhir', compact('pendidikan'));
     }
 
     function pageDataProdi()

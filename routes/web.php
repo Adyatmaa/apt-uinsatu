@@ -29,8 +29,13 @@ Route::get('/', [PageController::class, 'login'])->name('login');
 Route::get('input-prodi', [PageController::class, 'pageInputProdi'])->name('pageInputProdi');
 Route::get('input-mahasiswa', [PageController::class, 'pageInputMahasiswa'])->name('pageInputMahasiswa');
 Route::get('input-tenaga-pendidikan', [PageController::class, 'pageInputTendik'])->name('pageInputTendik');
+Route::get('input-dosen', [PageController::class, 'pageInputDosen'])->name('pageInputDosen');
 
 Route::get('data-fakultas', [PageController::class, 'pageDataFakultas'])->name('pageDataFakultas');
+Route::get('data-jenjang', [PageController::class, 'pageDataJenjang'])->name('pageDataJenjang');
 Route::get('data-program-studi', [PageController::class, 'pageDataProdi'])->name('pageDataProdi');
+Route::get('data-jabatan-akademik-dosen', [PageController::class, 'pageDataJbAkaDsn'])->name('pageDataJbAkaDsn');
+Route::get('data-pendidikan-terakhir', [PageController::class, 'pageDataPendAkhir'])->name('pageDataPendAkhir');
+Route::get('data-jabatan-tendik', [PageController::class, 'pageDataJbTendik'])->name('pageDataJbTendik');
 
 Route::post('input-prodi', [ProdiController::class, 'insertProdi'])->name('prodi.insert');
