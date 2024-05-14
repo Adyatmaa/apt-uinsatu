@@ -14,6 +14,9 @@
                             <li class="breadcrumb-item active">Input Mahasiswa</li>
                         </ol>
                     </div><!-- /.col -->
+                    <div class="alert alert-primary" role="alert">
+                        {{-- {{ $error }} --}}
+                    </div>
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
@@ -32,22 +35,13 @@
                                 <p>Silahkan input data mahasiswa per prodi sesusai dengan template
                                     yang telah tersedia</p>
                                 <p>Unduh template <a href="{{ asset('assets/file/mhs.zip') }}">disini</a></p>
-                                <label for="exampleInputPassword1">Prodi</label>
-                                <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
-                                <div class="form-group">
-                                    <!-- <label for="exampleSelectRounded0">Flat <code>.rounded-0</code></label> -->
-                                    <select class="custom-select rounded-1" id="exampleSelectRounded0">
-                                        @foreach ($prodi as $row)
-                                            <option value="{{ $row->id_prodi }}">{{ $row->nama_prodi }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Status Mahasiswa</label>
-                                <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
+
                                 <div class="form-group">
-                                    <!-- <label for="exampleSelectRounded0">Flat <code>.rounded-0</code></label> -->
+
                                     <select class="custom-select rounded-1" id="exampleSelectRounded0"
                                         name="statusMahasiswa">
                                         <option value="1">Calon Mahasiswa</option>

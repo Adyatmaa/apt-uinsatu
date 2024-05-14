@@ -151,57 +151,102 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link ">
-                        <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
                         <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                            Master Data
-                            <i class="right fas fa-angle-left"></i>
-                            <!-- <span class="badge badge-info right">4</span> -->
-                        </p>
+                        <p>Master Data<i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('pageDataJenjang') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Jenjang</p>
+                            <a href="#" class="nav-link ">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>Master Data<i class="right fas fa-angle-left"></i></p>
                             </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('pageDataFakultas') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Fakultas</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('pageDataProdi') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Prodi</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('pageDataPendAkhir') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Pendidikan Terakhir</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('pageDataJbAkaDsn') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Jabatan Akademik Dosen</p>
-                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('pageDataJenjang') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data Jenjang</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('pageDataFakultas') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data Fakultas</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('pageDataProdi') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data Prodi</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('pageDataPendAkhir') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data Pendidikan Terakhir</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('pageDataJbAkaDsn') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data Jabatan Akademik Dosen</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('pageDataTendik') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data Tenaga Didik</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('pageDataDosen') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data Dosen</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Mahasiswa</p>
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Data Mahasiswa
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('pageDataCalonMhs') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Calon Mahasiswa</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('pageDataMhsAktif') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Mahasiswa Aktif</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('pageDataMhsAsing') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Mahasiswa Asing</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('pageDataMhsLulus') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Mahasiswa Lulus</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('pageDataMhsTgsAkhir') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Mahasiswa Tugas Akhir</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Tenaga Didik</p>
-                            </a>
-                        </li>
+
                     </ul>
                 </li>
             </ul>

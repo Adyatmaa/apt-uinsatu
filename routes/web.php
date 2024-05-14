@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DosenController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\PageController;
@@ -39,7 +40,16 @@ Route::get('data-program-studi', [PageController::class, 'pageDataProdi'])->name
 Route::get('data-jabatan-akademik-dosen', [PageController::class, 'pageDataJbAkaDsn'])->name('pageDataJbAkaDsn');
 Route::get('data-pendidikan-terakhir', [PageController::class, 'pageDataPendAkhir'])->name('pageDataPendAkhir');
 Route::get('data-jabatan-tendik', [PageController::class, 'pageDataJbTendik'])->name('pageDataJbTendik');
+Route::get('data-tendik', [PageController::class, 'pageDataTendik'])->name('pageDataTendik');
+Route::get('data-dosen', [PageController::class, 'pageDataDosen'])->name('pageDataDosen');
+
+Route::get('data-calon-mahasiswa', [PageController::class, 'pageDataCalonMhs'])->name('pageDataCalonMhs');
+Route::get('data-mhs-aktif', [PageController::class, 'pageDataMhsAktif'])->name('pageDataMhsAktif');
+Route::get('data-mhs-asing', [PageController::class, 'pageDataMhsAsing'])->name('pageDataMhsAsing');
+Route::get('data-mhs-lulus', [PageController::class, 'pageDataMhsLulus'])->name('pageDataMhsLulus');
+Route::get('data-mhs-tugas-akhir', [PageController::class, 'pageDataMhsTgsAkhir'])->name('pageDataMhsTgsAkhir');
 
 Route::post('input-prodi', [ProdiController::class, 'insertProdi'])->name('prodi.insert');
 Route::post('input-tendik', [TendikController::class, 'insertTendik'])->name('tendik.insert');
+Route::post('input-dosen', [DosenController::class, 'insertDosen'])->name('dosen.insert');
 Route::post('input-mahasiswa', [MahasiswaController::class, 'insertMahasiswa'])->name('mahasiswa.insert');

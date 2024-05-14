@@ -2,6 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DetailCalonMahasiswa;
+use App\Models\DetailMahasiswaAktif;
+use App\Models\DetailMhsAsing;
+use App\Models\DetailMhsLulus;
+use App\Models\DetailMhsTugasAkhir;
+use App\Models\DtDosen;
+use App\Models\DTendik;
 use App\Models\jabatan_aka_dsn;
 use App\Models\MFakultas;
 use App\Models\MJabatan_aka_dsn;
@@ -88,59 +95,101 @@ class PageController extends Controller
     function pageInputProdi()
     {
         $faculty = MFakultas::all();
-        return view('admin.inputProdi', compact('faculty'));
+        return view('admin.input.inputProdi', compact('faculty'));
     }
 
     function pageInputMahasiswa()
     {
         $prodi = MProdi::all();
-        return view('admin.inputMahasiswa', compact('prodi'));
+        return view('admin.input.inputMahasiswa', compact('prodi'));
     }
 
     function pageInputTendik()
     {
-        return view('admin.inputTendik');
+        return view('admin.input.inputTendik');
     }
 
     function pageInputDosen()
     {
-        return view('admin.inputDosen');
+        return view('admin.input.inputDosen');
     }
 
     function pageDataFakultas()
     {
         $faculty = MFakultas::all();
-        return view('admin.dataFakultas', compact('faculty'));
+        return view('admin.data.dataFakultas', compact('faculty'));
+    }
+
+    function pageDataTendik()
+    {
+        $tendik = DTendik::all();
+        return view('admin.data.dataTendik', compact('tendik'));
+    }
+
+    function pageDataDosen()
+    {
+        $dosen = DtDosen::all();
+        return view('admin.data.dataDosen', compact('dosen'));
     }
 
     function pageDataJenjang()
     {
         $jenjang = MJenjang::all();
-        return view('admin.dataJenjang', compact('jenjang'));
+        return view('admin.data.dataJenjang', compact('jenjang'));
     }
 
     function pageDataJbTendik()
     {
         $jabatan = MJabatan_tendik::all();
-        return view('admin.dataJbTendik', compact('jabatan'));
+        return view('admin.data.dataJbTendik', compact('jabatan'));
     }
 
     function pageDataJbAkaDsn()
     {
         $jabatan = MJabatan_aka_dsn::all();
-        return view('admin.dataJbatanAkadDosen', compact('jabatan'));
+        return view('admin.data.dataJbatanAkadDosen', compact('jabatan'));
     }
 
     function pageDataPendAkhir()
     {
         $pendidikan = MPendidikan_terakhir::all();
-        return view('admin.dataPendidikanTerakhir', compact('pendidikan'));
+        return view('admin.data.dataPendidikanTerakhir', compact('pendidikan'));
     }
 
     function pageDataProdi()
     {
         $prodi = MProdi::with(['jenjang', 'fakultas', 'akreditasi'])->get();
         // dd($prodi);
-        return view('admin.dataProdi', compact('prodi'));
+        return view('admin.data.dataProdi', compact('prodi'));
+    }
+
+    function pageDataCalonMhs()
+    {
+        $mhs = DetailCalonMahasiswa::all();
+        return view('admin.data.mhs.dataCalonMhs', compact('mhs'));
+    }
+
+    function pageDataMhsAktif()
+    {
+        $mhs = DetailMahasiswaAktif::all();
+        return view('admin.data.mhs.dataMhsAktif', compact('mhs'));
+    }
+
+    function pageDataMhsAsing()
+    {
+        $mhs = DetailMhsAsing::all();
+        return view('admin.data.mhs.dataMhsAsing', compact('mhs'));
+    }
+
+    function pageDataMhsLulus()
+    {
+        $mhs = DetailMhsLulus::all();
+        return view('admin.data.mhs.dataMhsLulus', compact('mhs'));
+    }
+
+    function pageDataMhsTgsAkhir()
+    {
+        $mhs = DetailMhsTugasAkhir::all();
+        return view('admin.data.mhs.dataMhsTugasAkhir', compact('mhs'));
     }
 }

@@ -6,12 +6,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Data Fakultas</h1>
+                        <h1 class="m-0">Data Calon Mahasiswa</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Data Fakultas</li>
+                            <li class="breadcrumb-item active">Data Calon Mahasiswa</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -23,7 +23,7 @@
         <section class="content">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Data Fakultas</h3>
+                    <h3 class="card-title">Data Calon Mahasiswa</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -31,20 +31,28 @@
                         <thead>
                             <tr>
                                 <th style="width: 5%">No</th>
-                                <th style="width: 10%">ID Fakultas</th>
-                                <th>Nama Fakultas</th>
+                                <th>Program Studi</th>
+                                <th>Daya Tampung Prodi</th>
+                                <th>Jumlah Pendaftar</th>
+                                <th>Jumlah Mhs Lulus Seleksi</th>
+                                <th>Jumlah Mhs Registrasi</th>
+                                <th>Jumlah Mhs Transfer</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
 
                         $no = 0;
-                        foreach ($faculty as $row) : $no++;
+                        foreach ($mhs as $row) : $no++;
                         ?>
                             <tr>
                                 <th><?= $no ?></th>
-                                <th class="flex text-center"><?= $row->id_fakultas ?></th>
-                                <td><?= $row->nama_fakultas ?></td>
+                                <td><?= $row->id_prodi ?></td>
+                                <td><?= $row->daya_tampung ?></td>
+                                <td><?= $row->pendaftar ?></td>
+                                <td><?= $row->lulus_seleksi ?></td>
+                                <td><?= $row->mhs_registrasi ?></td>
+                                <td><?= $row->mhs_transfer ?></td>
                             </tr>
                             <?php
                         endforeach

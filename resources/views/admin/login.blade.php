@@ -59,7 +59,7 @@
 
                 <div class="card-footer bg-white">
                     <div class="form-group text-center">
-                        <h6>Dont have an account</h6><a href="{{route('register')}}">Sign In Here</a>
+                        {{-- <h6>Dont have an account</h6><a href="{{route('register')}}">Sign In Here</a> --}}
                     </div>
                 </div>
             </form>

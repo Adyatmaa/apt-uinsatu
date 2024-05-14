@@ -9,7 +9,7 @@ class MPendidikan_terakhir extends Model
 {
     use HasFactory;
     protected $table = 'm_pendidikan_terakhir';
-    protected $pirmarykey = 'id_pendidikan_terakhir';
+    protected $primarykey = 'id_pendidikan_terakhir';
     public $timestamps = false;
     protected $fillable = [
         'pendidikan_terakhir',
