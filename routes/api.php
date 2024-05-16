@@ -20,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('dosen', [ApiController::class, 'dosen']);
+Route::get('tendik', [ApiController::class, 'tendik']);

@@ -18,4 +18,9 @@ class DTendik extends Model
         'bukti',
         'keterangan',
     ];
+
+    public function jabatanTendik()
+    {
+        return $this->belongsTo(MJabatan_tendik::class, 'id_jabatan_tendik', 'id_jabatan_tendik');
+    }
 }

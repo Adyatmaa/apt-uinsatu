@@ -14,4 +14,9 @@ class MJabatan_tendik extends Model
     protected $fillable = [
         'jabatan_tendik',
     ];
+
+    public function tendik()
+    {
+        return $this->hasMany(DTendik::class, 'id_jabatan_tendik', 'id_jabatan_tendik');
+    }
 }
