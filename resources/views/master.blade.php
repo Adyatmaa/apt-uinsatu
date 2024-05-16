@@ -156,55 +156,48 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link ">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>Master Data<i class="right fas fa-angle-left"></i></p>
+                            <a href="{{ route('pageDataJenjang') }}" class="nav-link">
+                                <p>Data Jenjang</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('pageDataJenjang') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Data Jenjang</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('pageDataFakultas') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Data Fakultas</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('pageDataProdi') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Data Prodi</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('pageDataPendAkhir') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Data Pendidikan Terakhir</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('pageDataJbAkaDsn') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Data Jabatan Akademik Dosen</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('pageDataTendik') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Data Tenaga Didik</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('pageDataDosen') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Data Dosen</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pageDataFakultas') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Fakultas</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pageDataProdi') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Prodi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pageDataPendAkhir') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Pendidikan Terakhir</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pageDataJbAkaDsn') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Jabatan Akademik Dosen</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pageDataTendik') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Tenaga Didik</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pageDataDosen') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Dosen</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
