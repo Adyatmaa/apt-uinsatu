@@ -31,7 +31,11 @@
                         <thead>
                             <tr>
                                 <th style="width: 5%">No</th>
+                                <th>NIK Dosen</th>
                                 <th>Nama Dosen</th>
+                                <th>Program Studi</th>
+                                <th>Jabatan Akademik Dosen</th>
+                                <th>Pendidikan Terakhir Dosen</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,7 +46,11 @@
                         ?>
                             <tr>
                                 <th><?= $no ?></th>
+                                <td><?= $row->nip_nik_dosen ?></td>
                                 <td><?= $row->nama_dosen ?></td>
+                                <td><?= $row->prodi->nama_prodi ?></td>
+                                <td><?= $row->jabatanAkademik->jabatan_akademik_dosen ?></td>
+                                <td><?= $row->pendidikanTerakhir->pendidikan_terakhir ?></td>
                             </tr>
                             <?php
                         endforeach

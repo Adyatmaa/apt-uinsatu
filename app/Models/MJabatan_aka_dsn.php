@@ -14,4 +14,9 @@ class MJabatan_aka_dsn extends Model
     protected $fillable = [
         'jabatan_akademik_dosen',
     ];
+
+    public function dosen()
+    {
+        return $this->hasMany(DtDosen::class, 'id_jabatan_akademik_dosen', 'id_jabatan_akademik_dosen');
+    }
 }

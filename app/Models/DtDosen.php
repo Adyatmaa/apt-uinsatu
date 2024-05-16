@@ -20,4 +20,19 @@ class DtDosen extends Model
         'is_sertifikasi',
         'is_tetap',
     ];
+
+    public function prodi()
+    {
+        return $this->belongsTo(MProdi::class, 'id_prodi');
+    }
+
+    public function jabatanAkademik()
+    {
+        return $this->belongsTo(MJabatan_aka_dsn::class, 'id_jabatan_akademik_dosen', 'id_jabatan_akademik_dosen');
+    }
+
+    public function pendidikanTerakhir()
+    {
+        return $this->belongsTo(MPendidikan_terakhir::class, 'id_pendidikan_terakhir', 'id_pendidikan_terakhir');
+    }
 }

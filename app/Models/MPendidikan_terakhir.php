@@ -14,4 +14,9 @@ class MPendidikan_terakhir extends Model
     protected $fillable = [
         'pendidikan_terakhir',
     ];
+
+    public function dosen()
+    {
+        return $this->hasMany(DtDosen::class, 'id_pendidikan_terakhir', 'id_pendidikan_terakhir'    );
+    }
 }

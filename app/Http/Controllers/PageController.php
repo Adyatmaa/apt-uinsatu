@@ -122,13 +122,13 @@ class PageController extends Controller
 
     function pageDataTendik()
     {
-        $tendik = DTendik::all();
+        $tendik = DTendik::with('jabatanTendik')->get();
         return view('admin.data.dataTendik', compact('tendik'));
     }
 
     function pageDataDosen()
     {
-        $dosen = DtDosen::all();
+        $dosen = DtDosen::with(['prodi', 'jabatanAkademik'])->get();
         return view('admin.data.dataDosen', compact('dosen'));
     }
 
@@ -159,7 +159,6 @@ class PageController extends Controller
     function pageDataProdi()
     {
         $prodi = MProdi::with(['jenjang', 'fakultas', 'akreditasi'])->get();
-        // dd($prodi);
         return view('admin.data.dataProdi', compact('prodi'));
     }
 

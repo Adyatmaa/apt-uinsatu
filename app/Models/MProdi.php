@@ -34,4 +34,9 @@ class MProdi extends Model
     {
         return $this->belongsTo(MAkreditasi::class, 'id_akreditasi');
     }
+
+    public function dosen()
+    {
+        return $this->hasMany(DtDosen::class, 'id_prodi');
+    }
 }

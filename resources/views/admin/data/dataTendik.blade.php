@@ -31,7 +31,9 @@
                         <thead>
                             <tr>
                                 <th style="width: 5%">No</th>
+                                <th>NIP Tenaga Didik</th>
                                 <th>Nama Tenaga Didik</th>
+                                <th>Jabatan Tenaga Didik</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,7 +44,9 @@
                         ?>
                             <tr>
                                 <th><?= $no ?></th>
+                                <td><?= $row->nip_nik_tendik ?></td>
                                 <td><?= $row->nama_tendik ?></td>
+                                <td><?= $row->jabatanTendik->jabatan_tendik ?></td>
                             </tr>
                             <?php
                         endforeach
