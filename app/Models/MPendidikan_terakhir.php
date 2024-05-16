@@ -17,6 +17,6 @@ class MPendidikan_terakhir extends Model
 
     public function dosen()
     {
-        return $this->hasMany(DtDosen::class, 'id_pendidikan_terakhir', 'id_pendidikan_terakhir'    );
+        return $this->hasMany(DtDosen::class, 'id_pendidikan_terakhir', 'id_pendidikan_terakhir');
     }
 }
