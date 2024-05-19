@@ -29,241 +29,227 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/summernote/summernote-bs4.min.css') }}">
 </head>
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ route('dashboard') }}" class="nav-link">Home</a>
-        </li>
-    </ul>
+<div class="wrapper">
 
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-        <!-- Navbar Search -->
-        <li class="nav-item">
-            <a class="btn btn-danger mx-3" href="{{ route('logout') }}">Logout</a>
-            {{-- <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                <i class="fas fa-search"></i>
-            </a>
-            <div class="navbar-search-block">
-                <form class="form-inline">
-                    <div class="input-group input-group-sm">
-                        <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                            aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-navbar" type="submit">
-                                <i class="fas fa-search"></i>
-                            </button>
-                            <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div> --}}
-        </li>
 
-    </ul>
-</nav>
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="{{ route('dashboard') }}" class="nav-link">Home</a>
+            </li>
+        </ul>
 
-<!-- Main Sidebar Container -->
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <!-- Navbar Search -->
+            <li class="nav-item">
+                <a class="btn btn-danger mx-3" href="{{ route('logout') }}">Logout</a>
 
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+            </li>
 
-    <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <!-- <img src="dist/img/uinma.png" class="img-circle elevation-2" alt="User Image"> -->
-            </div>
-            <div class="info">
-                <a class="d-block">Admin</a>
-            </div>
-        </div>
+        </ul>
+    </nav>
 
-        <!-- SidebarSearch Form -->
-        <div class="form-inline">
-            <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                    aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-sidebar">
-                        <i class="fas fa-search fa-fw"></i>
-                    </button>
+    <!-- Main Sidebar Container -->
+
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <!-- <img src="dist/img/uinma.png" class="img-circle elevation-2" alt="User Image"> -->
+                </div>
+                <div class="info">
+                    <a class="d-block">Admin</a>
                 </div>
             </div>
-        </div>
 
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
+            <!-- SidebarSearch Form -->
+            <div class="form-inline">
+                <div class="input-group" data-widget="sidebar-search">
+                    <input class="form-control form-control-sidebar" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-sidebar">
+                            <i class="fas fa-search fa-fw"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                <li class="nav-item">
-                    <a href="{{ route('dashboard') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <!-- <i class="nav-icon far fa-calendar-alt"></i> -->
-                        <p>
-                            Home
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link ">
-                        <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
-                        <i class="nav-icon fas fa-edit"></i>
-                        <p>
-                            Input
-                            <i class="right fas fa-angle-left"></i>
-                            <!-- <span class="badge badge-info right">4</span> -->
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('pageInputProdi') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Input Data Prodi</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('pageInputMahasiswa') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Input Data Mahasiswa</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('pageInputTendik') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Input Data Tenaga Didik</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('pageInputDosen') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Input Data Dosen</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link ">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>Master Data<i class="right fas fa-angle-left"></i></p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('pageDataJenjang') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Jenjang</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('pageDataFakultas') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Fakultas</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('pageDataProdi') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Prodi</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('pageDataPendAkhir') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Pendidikan Terakhir</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('pageDataJbAkaDsn') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Jabatan Akademik Dosen</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('pageDataTendik') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Tenaga Didik</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('pageDataDosen') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Dosen</p>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Data Mahasiswa
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('pageDataCalonMhs') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Calon Mahasiswa</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('pageDataMhsAktif') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Mahasiswa Aktif</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('pageDataMhsAsing') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Mahasiswa Asing</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('pageDataMhsLulus') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Mahasiswa Lulus</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('pageDataMhsTgsAkhir') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Mahasiswa Tugas Akhir</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                    <li class="nav-item">
+                        <a href="{{ route('dashboard') }}" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <!-- <i class="nav-icon far fa-calendar-alt"></i> -->
+                            <p>
+                                Home
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link ">
+                            <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                Input
+                                <i class="right fas fa-angle-left"></i>
+                                <!-- <span class="badge badge-info right">4</span> -->
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('pageInputProdi') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Input Data Prodi</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('pageInputMahasiswa') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Input Data Mahasiswa</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('pageInputTendik') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Input Data Tenaga Didik</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('pageInputDosen') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Input Data Dosen</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link ">
+                            <i class="nav-icon fas fa-copy"></i>
+                            <p>Master Data<i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('pageDataJenjang') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Data Jenjang</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('pageDataFakultas') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Data Fakultas</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('pageDataProdi') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Data Prodi</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('pageDataPendAkhir') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Data Pendidikan Terakhir</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('pageDataJbAkaDsn') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Data Jabatan Akademik Dosen</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('pageDataTendik') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Data Tenaga Didik</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('pageDataDosen') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Data Dosen</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-copy"></i>
+                                    <p>
+                                        Data Mahasiswa
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ route('pageDataCalonMhs') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Calon Mahasiswa</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('pageDataMhsAktif') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Mahasiswa Aktif</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('pageDataMhsAsing') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Mahasiswa Asing</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('pageDataMhsLulus') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Mahasiswa Lulus</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('pageDataMhsTgsAkhir') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Mahasiswa Tugas Akhir</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-</aside>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
 
-@yield('content')
+    @yield('content')
 
-<footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.2.0
-    </div>
-</footer>
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+            <b>Version</b> 3.2.0
+        </div>
+    </footer>
 
-<!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-</aside>
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+</div>
 <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('assets/plugins/jquery-ui/jquery-ui.min.js') }}"></script>

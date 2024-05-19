@@ -1,5 +1,4 @@
 @extends('master')
-
 @section('content')
     <div class="content-wrapper">
         <div class="content-header">
@@ -17,9 +16,7 @@
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
-        <!-- /.content-header -->
 
-        <!-- Main content -->
         <section class="content">
             <div class="card">
                 <div class="card-header">
@@ -40,11 +37,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
 
-                        $no = 0;
-                        foreach ($mhs as $row) : $no++;
-                        ?>
+                            <?php
+                                    $no = 0;
+                                    foreach ($mhs as $row) : $no++;
+                                ?>
                             <tr>
                                 <th><?= $no ?></th>
                                 <td><?= $row->id_prodi ?></td>
@@ -62,6 +59,5 @@
                 </div>
             </div>
         </section>
-        <!-- /.content -->
     </div>
 @endsection
