@@ -34,7 +34,7 @@
                             <div class="form-group">
                                 <p>Silahkan input data mahasiswa per prodi sesusai dengan template
                                     yang telah tersedia</p>
-                                <p>Unduh template <a href="{{ asset('assets/file/mhs.zip') }}">disini</a></p>
+                                <p>Unduh template <a href="{{ asset('assets/file/template-mhs.zip') }}">disini</a></p>
 
                             </div>
                             <div class="form-group">
