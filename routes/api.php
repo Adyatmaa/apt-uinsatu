@@ -21,3 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('dosen', [ApiController::class, 'dosen']);
 Route::get('tendik', [ApiController::class, 'tendik']);
+Route::get('list-dosen', [ApiController::class, 'listDosen']);
+Route::get('list-tendik', [ApiController::class, 'listTendik']);
+Route::get('list-akre', [ApiController::class, 'listAkre']);
+Route::get('list-fakultas', [ApiController::class, 'listFakultas']);
+Route::get('list-prodi', [ApiController::class, 'listProdi']);
