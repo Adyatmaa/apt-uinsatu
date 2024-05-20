@@ -62,6 +62,21 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Tahun</label>
+
+                                <div class="form-group">
+
+                                    <select class="custom-select rounded-1" id="exampleSelectRounded0"
+                                        name="statusMahasiswa">
+                                        <option value="1">2020</option>
+                                        <option value="2">2021</option>
+                                        <option value="3">2022</option>
+                                        <option value="4">2023</option>
+                                        <option value="5">2024</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="mt-4">
                                 <label class="mb-3" for="">*Catatan</label>
                                 <p>Sebelum mengupload Data Mahasiswa, Harap upload data <a
