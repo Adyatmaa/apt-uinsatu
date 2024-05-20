@@ -29,11 +29,35 @@ class ApiController extends Controller
         return new ApiResource(true, 'List Data Tenaga Didik', $data);
     }
     
-    public function listAkre()
+    public function akreditasi()
     {
-        $data = MAkreditasi::all();
+        try {
+            // Mengambil jumlah data berdasarkan akreditasi
+            $counts = MProdi::with('akreditasi')
+                ->select('id_akreditasi', DB::raw('count(*) as total'))
+                ->groupBy('id_akreditasi')
+                ->get()
+                ->map(function ($item) {
+                    return [
+                        'id_akreditasi' => $item->akreditasi->id_akreditasi,
+                        'akreditasi' => $item->akreditasi->akreditasi,
+                        'total' => $item->total
+                    ];
+                });
 
-        return new ApiResource(true, 'List Data Akreditasi', $data);
+            // Mengembalikan data dalam format JSON
+            return response()->json([
+                'success' => true,
+                'data' => $counts
+            ], 200);
+        } catch (\Exception $e) {
+            // Mengembalikan pesan error dalam format JSON dengan kode status 500 (Internal Server Error)
+            return response()->json([
+                'success' => false,
+                'message' => 'Terjadi kesalahan saat mengambil data tendik',
+                'error' => $e->getMessage()
+            ], 500);
+        }
     }
     
     public function listFakultas()
