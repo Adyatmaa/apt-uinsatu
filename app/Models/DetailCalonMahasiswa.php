@@ -20,4 +20,9 @@ class DetailCalonMahasiswa extends Model
         'mhs_registrasi',
         'mhs_transfer',
     ];
+
+    public function prodi()
+    {
+        return $this->belongsTo(MProdi::class, 'id_prodi');
+    }
 }

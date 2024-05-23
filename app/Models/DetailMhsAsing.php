@@ -16,4 +16,8 @@ class DetailMhsAsing extends Model
         'id_prodi',
         'jml_mhs_asing',
     ];
+
+    public function prodi() {
+        return $this->belongsTo(DetailMahasiswaAktif::class,'id_prodi');
+    }
 }

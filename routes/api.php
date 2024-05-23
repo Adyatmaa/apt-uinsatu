@@ -26,3 +26,8 @@ Route::get('list-dosen', [ApiController::class, 'listDosen']);
 Route::get('list-tendik', [ApiController::class, 'listTendik']);
 Route::get('list-fakultas', [ApiController::class, 'listFakultas']);
 Route::get('list-prodi', [ApiController::class, 'listProdi']);
+
+Route::get('calon-mhs',[ApiController::class, 'listcalonmhs']);
+Route::get('calon-mhs',[ApiController::class, 'listCalonMhsByProdi']);
+
+Route::get('mhs-asing',[ApiController::class, 'listMhsAsing']);

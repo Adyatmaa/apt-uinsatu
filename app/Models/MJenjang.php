@@ -19,4 +19,5 @@ class MJenjang extends Model
     {
         return $this->hasMany(MProdi::class, 'id_jenjang');
     }
+
 }
