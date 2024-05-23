@@ -16,6 +16,7 @@ use App\Models\MJabatan_tendik;
 use App\Models\MJenjang;
 use App\Models\MPendidikan_terakhir;
 use App\Models\MProdi;
+use App\Models\MTahun;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -100,8 +101,21 @@ class PageController extends Controller
 
     function pageInputMahasiswa()
     {
-        $prodi = MProdi::all();
-        return view('admin.input.inputMahasiswa', compact('prodi'));
+        // $prodi = MProdi::all();
+        $tahun = MTahun::all();
+        return view('admin.input.inputMahasiswa', compact('tahun'));
+    }
+    
+    function pageEditMahasiswa($id)
+    {
+        $tahun = MTahun::findOrFail($id);
+        return view('admin.input.editMhs', compact('tahun'));
+    }
+    
+    function pageAddMahasiswa($id)
+    {
+        $tahun = MTahun::findOrFail($id);
+        return view('admin.input.addMhs', compact('tahun'));
     }
 
     function pageInputTendik()

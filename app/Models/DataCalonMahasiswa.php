@@ -15,4 +15,9 @@ class DataCalonMahasiswa extends Model
         'id_tahun',
         'bukti'
     ];
+
+    public function tahun()
+    {
+        return $this->belongsTo(MTahun::class, 'id_tahun');
+    }
 }

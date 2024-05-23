@@ -14,9 +14,6 @@
                             <li class="breadcrumb-item active">Input Mahasiswa</li>
                         </ol>
                     </div><!-- /.col -->
-                    <div class="alert alert-primary" role="alert">
-                        {{-- {{ $error }} --}}
-                    </div>
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
@@ -28,22 +25,69 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="{{ route('mahasiswa.insert') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="card-body">
-                            <div class="form-group">
-                                <p>Silahkan input data mahasiswa per prodi sesusai dengan template
-                                    yang telah tersedia</p>
-                                <p>Unduh template <a href="{{ asset('assets/file/template-mhs.zip') }}">disini</a></p>
 
+                    <div class="card-body">
+                        <div class="form-group">
+                            <p>Silahkan input data mahasiswa per prodi sesusai dengan template
+                                yang telah tersedia</p>
+                            <p>Unduh template <a href="{{ asset('assets/file/template-mhs.zip') }}">disini</a></p>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group d-flex align-items-center justify-content-center">
+                                <input type="text" class="form-control w-auto mr-4" placeholder="Tambahkan Tahun Baru">
+                                <a href="" class="btn btn-primary">Tambah</a>
                             </div>
-                            <div class="form-group">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body table-responsive p-0">
+                                            <table class="table table-hover text-nowrap">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width: 10%">No</th>
+                                                        <th>Tahun</th>
+                                                        <th style="width: 20%">Aksi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $no = 1;
+                                                    ?>
+                                                    @foreach ($tahun as $row)
+                                                        <tr>
+                                                            <td><?= $no++ ?></td>
+                                                            <td>{{ $row->tahun }}</td>
+                                                            <td>
+                                                                <a href="{{ route('pageEditMahasiswa', ['id_tahun' => $row->id_tahun]) }}"
+                                                                    class="btn btn-primary">
+                                                                    <span>Edit</span>
+                                                                </a>
+                                                                <a href="{{ route('pageAddMahasiswa', ['id_tahun' => $row->id_tahun]) }}"
+                                                                    class="btn btn-success">
+                                                                    <span>Add</span>
+                                                                </a>
+                                                                <a href="" class="btn btn-danger">
+                                                                    <span>Delete</span>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.card-body -->
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                            </div>
+                            {{-- form --}}
+                        </div>
+                        {{-- <div class="form-group">
                                 <label for="exampleInputPassword1">Status Mahasiswa</label>
-
                                 <div class="form-group">
-
-                                    <select class="custom-select rounded-1" id="exampleSelectRounded0"
-                                        name="statusMahasiswa">
+    
+                                    <select class="custom-select rounded-1" id="exampleSelectRounded0" name="statusMahasiswa">
                                         <option value="1">Calon Mahasiswa</option>
                                         <option value="2">Mahasiswa Aktif</option>
                                         <option value="3">Mahasiswa Asing</option>
@@ -84,14 +128,13 @@
                                 <p>Untuk melihat ID dari Fakultas dan Jenjang, Silahkan ke halaman <a
                                         href="{{ route('pageDataFakultas') }}">Fakultas</a> dan <a
                                         href="pageDataJenjang">Jenjang</a></p>
-                            </div>
-                        </div>
-                        <!-- /.card-body -->
+                            </div> --}}
+                    </div>
+                    <!-- /.card-body -->
 
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
+                    <div class="card-footer">
+                        {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+                    </div>
                 </div>
             </div>
         </section>
