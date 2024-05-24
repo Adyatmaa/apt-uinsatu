@@ -34,9 +34,22 @@
 
                         </div>
                         <div class="form-group">
-                            <div class="form-group d-flex align-items-center justify-content-center">
-                                <input type="text" class="form-control w-auto mr-4" placeholder="Tambahkan Tahun Baru">
-                                <a href="" class="btn btn-primary">Tambah</a>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <form action="{{ route('addTahun') }}" method="POST">
+                                    @csrf
+                                    @method('POST')
+                                    <div class="form-group d-flex align-items-end justify-content-center">
+                                        <div class="form-group mb-3 mr-4">
+                                            <label for="">Tahun</label>
+                                            <input type="text" name="tahun" class="form-control"
+                                                placeholder="Tambahkan Tahun Baru" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">Tambah</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                             <div class="row">
                                 <div class="col-12">
@@ -58,18 +71,39 @@
                                                         <tr>
                                                             <td><?= $no++ ?></td>
                                                             <td>{{ $row->tahun }}</td>
-                                                            <td>
+                                                            <td class="d-flex align-items-center justify-content-between">
                                                                 <a href="{{ route('pageEditMahasiswa', ['id_tahun' => $row->id_tahun]) }}"
                                                                     class="btn btn-primary">
-                                                                    <span>Edit</span>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                                        viewBox="0 -960 960 960" width="24px"
+                                                                        fill="#e8eaed">
+                                                                        <path
+                                                                            d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" />
+                                                                    </svg>
                                                                 </a>
                                                                 <a href="{{ route('pageAddMahasiswa', ['id_tahun' => $row->id_tahun]) }}"
                                                                     class="btn btn-success">
-                                                                    <span>Add</span>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                                        viewBox="0 -960 960 960" width="24px"
+                                                                        fill="#e8eaed">
+                                                                        <path
+                                                                            d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z" />
+                                                                    </svg>
                                                                 </a>
-                                                                <a href="" class="btn btn-danger">
-                                                                    <span>Delete</span>
-                                                                </a>
+                                                                <form
+                                                                    action="{{ route('delTahun', ['id_tahun' => $row->id_tahun]) }}"
+                                                                    method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit" class="btn btn-danger">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                            height="24px" viewBox="0 -960 960 960"
+                                                                            width="24px" fill="#e8eaed">
+                                                                            <path
+                                                                                d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
+                                                                        </svg>
+                                                                    </button>
+                                                                </form>
                                                             </td>
                                                         </tr>
                                                     @endforeach

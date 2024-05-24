@@ -4,6 +4,7 @@ use App\Http\Controllers\DosenController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\TahunController;
 use App\Http\Controllers\TendikController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,7 @@ Route::get('input-prodi', [PageController::class, 'pageInputProdi'])->name('page
 Route::get('input-mahasiswa', [PageController::class, 'pageInputMahasiswa'])->name('pageInputMahasiswa');
 Route::get('edit-mahasiswa/{id_tahun}', [PageController::class, 'pageEditMahasiswa'])->name('pageEditMahasiswa');
 Route::get('add-mahasiswa/{id_tahun}', [PageController::class, 'pageAddMahasiswa'])->name('pageAddMahasiswa');
+
 Route::get('input-tenaga-pendidikan', [PageController::class, 'pageInputTendik'])->name('pageInputTendik');
 Route::get('input-dosen', [PageController::class, 'pageInputDosen'])->name('pageInputDosen');
 
@@ -55,3 +57,6 @@ Route::post('input-prodi', [ProdiController::class, 'insertProdi'])->name('prodi
 Route::post('input-tendik', [TendikController::class, 'insertTendik'])->name('tendik.insert');
 Route::post('input-dosen', [DosenController::class, 'insertDosen'])->name('dosen.insert');
 Route::post('input-mahasiswa', [MahasiswaController::class, 'insertMahasiswa'])->name('mahasiswa.insert');
+
+Route::post('tambah-tahun', [TahunController::class, 'addTahun'])->name('addTahun');
+Route::delete('del-mahasiswa/{id_tahun}', [TahunController::class, 'delTahun'])->name('delTahun');

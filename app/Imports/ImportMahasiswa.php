@@ -17,11 +17,13 @@ use Maatwebsite\Excel\Concerns\ToCollection;
 
 class ImportMahasiswa implements ToCollection
 {
-    protected $statusMahasiswa;
+    protected $statusMahasiswa, $id_tahun, $file;
 
-    public function __construct($statusMahasiswa)
+    public function __construct($statusMahasiswa, $id_tahun, $file)
     {
         $this->statusMahasiswa = $statusMahasiswa;
+        $this->id_tahun = $id_tahun;
+        $this->file = $file;
     }
 
     /**
@@ -29,40 +31,21 @@ class ImportMahasiswa implements ToCollection
      */
     public function collection(Collection $collection)
     {
-
-
         if ($this->statusMahasiswa == 1) {
+            $dataCalonMhs = new DataCalonMahasiswa();
+            $dataCalonMhs->id_tahun = $this->id_tahun;
+            // $dataCalonMhs->bukti = $file;
+            $dataCalonMhs->save();
+
             foreach ($collection->slice(1) as $row) {
-                switch ($row[0]) {
-                    case '2020':
-                        $data['id_tahun'] = 1;
-                        break;
-                    case '2021':
-                        $data['id_tahun'] = 2;
-                        break;
-                    case '2022':
-                        $data['id_tahun'] = 3;
-                        break;
-                    case '2023':
-                        $data['id_tahun'] = 4;
-                        break;
-                    case '2024':
-                        $data['id_tahun'] = 5;
-                        break;
-                    default:
-                        $data['id_tahun'] = 'null';
-                        break;
-                }
 
-                $dataCalonMahasiswa = DataCalonMahasiswa::create($data);
-
-                $detail['id_data_calon_mahasiswa'] = $dataCalonMahasiswa->id;
-                $detail['id_prodi'] = $row[1];
-                $detail['daya_tampung'] = $row[2];
-                $detail['pendaftar'] = $row[3];
-                $detail['lulus_seleksi'] = $row[4];
-                $detail['mhs_registrasi'] = $row[5];
-                $detail['mhs_transfer'] = $row[6];
+                $detail['id_data_calon_mahasiswa'] = $dataCalonMhs->id;
+                $detail['id_prodi'] = $row[0];
+                $detail['daya_tampung'] = $row[1];
+                $detail['pendaftar'] = $row[2];
+                $detail['lulus_seleksi'] = $row[3];
+                $detail['mhs_registrasi'] = $row[4];
+                $detail['mhs_transfer'] = $row[5];
 
                 DetailCalonMahasiswa::create($detail);
             }

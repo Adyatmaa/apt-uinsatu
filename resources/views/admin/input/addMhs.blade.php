@@ -10,7 +10,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('pageInputMahasiswa')}}">Input Mahasiswa</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('pageInputMahasiswa') }}">Input Mahasiswa</a></li>
                             <li class="breadcrumb-item active">Add Mahasiswa</li>
                         </ol>
                     </div><!-- /.col -->
@@ -37,7 +37,7 @@
                                 <label for="exampleInputPassword1">Tahun</label>
                                 <div class="form-group">
                                     <select class="custom-select rounded-1" id="exampleSelectRounded0"
-                                        name="statusMahasiswa" disabled style="background-color: white; color: black">
+                                        name="id_tahun" style="background-color: white; color: black">
                                         <option value="{{ $tahun->id_tahun }}">{{ $tahun->tahun }}
                                         </option>
                                     </select>
@@ -55,6 +55,17 @@
                                         <option value="4">Sudah Lulus</option>
                                         <option value="5">Sedang Menjalani Tugas Akhir</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="file">File bukti (.pdf)</label>
+                                <div class="input-group w-auto">
+                                    <div class="custom-file w-auto">
+                                        <input type="file" accept=".pdf" class="custom-file-input" name="file"
+                                            id="file">
+                                        <label class="custom-file-label" for="exampleInputFile">Tambahkan File
+                                            Bukti</label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -80,7 +91,7 @@
                         <!-- /.card-body -->
 
                         <div class="card-footer">
-                            {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>
