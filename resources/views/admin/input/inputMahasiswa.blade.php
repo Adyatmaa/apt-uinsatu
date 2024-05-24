@@ -23,8 +23,6 @@
                     <div class="card-header">
                         <h3 class="card-title">Input Data Mahasiswa</h3>
                     </div>
-                    <!-- /.card-header -->
-                    <!-- form start -->
 
                     <div class="card-body">
                         <div class="form-group">
@@ -44,7 +42,7 @@
                                             <input type="text" name="tahun" class="form-control"
                                                 placeholder="Tambahkan Tahun Baru" required>
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary">Tambah</button>
                                         </div>
@@ -72,7 +70,16 @@
                                                             <td><?= $no++ ?></td>
                                                             <td>{{ $row->tahun }}</td>
                                                             <td class="d-flex align-items-center justify-content-between">
-                                                                <a href="{{ route('pageEditMahasiswa', ['id_tahun' => $row->id_tahun]) }}"
+                                                                <a href="{{ route('pageInfoMahasiswa', ['id_tahun' => $row->id_tahun]) }}"
+                                                                    class="btn btn-primary">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                                        viewBox="0 -960 960 960" width="24px"
+                                                                        fill="#e8eaed">
+                                                                        <path
+                                                                            d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+                                                                    </svg>
+                                                                </a>
+                                                                {{-- <a href="{{ route('pageEditMahasiswa', ['id_tahun' => $row->id_tahun]) }}"
                                                                     class="btn btn-primary">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px"
                                                                         viewBox="0 -960 960 960" width="24px"
@@ -80,7 +87,7 @@
                                                                         <path
                                                                             d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" />
                                                                     </svg>
-                                                                </a>
+                                                                </a> --}}
                                                                 <a href="{{ route('pageAddMahasiswa', ['id_tahun' => $row->id_tahun]) }}"
                                                                     class="btn btn-success">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px"
@@ -92,7 +99,7 @@
                                                                 </a>
                                                                 <form
                                                                     action="{{ route('delTahun', ['id_tahun' => $row->id_tahun]) }}"
-                                                                    method="POST">
+                                                                    method="POST" class="align-items-center">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <button type="submit" class="btn btn-danger">
@@ -117,57 +124,7 @@
                             </div>
                             {{-- form --}}
                         </div>
-                        {{-- <div class="form-group">
-                                <label for="exampleInputPassword1">Status Mahasiswa</label>
-                                <div class="form-group">
-    
-                                    <select class="custom-select rounded-1" id="exampleSelectRounded0" name="statusMahasiswa">
-                                        <option value="1">Calon Mahasiswa</option>
-                                        <option value="2">Mahasiswa Aktif</option>
-                                        <option value="3">Mahasiswa Asing</option>
-                                        <option value="4">Sudah Lulus</option>
-                                        <option value="5">Sedang Menjalani Tugas Akhir</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputFile">File input</label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" accept=".csv" class="custom-file-input" id="exampleInputFile"
-                                            name="file" required>
-                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Tahun</label>
 
-                                <div class="form-group">
-
-                                    <select class="custom-select rounded-1" id="exampleSelectRounded0"
-                                        name="statusMahasiswa">
-                                        <option value="1">2020</option>
-                                        <option value="2">2021</option>
-                                        <option value="3">2022</option>
-                                        <option value="4">2023</option>
-                                        <option value="5">2024</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <label class="mb-3" for="">*Catatan</label>
-                                <p>Sebelum mengupload Data Mahasiswa, Harap upload data <a
-                                        href="{{ route('pageInputProdi') }}">Prodi</a> terlebih dahulu</p>
-                                <p>Untuk melihat ID dari Fakultas dan Jenjang, Silahkan ke halaman <a
-                                        href="{{ route('pageDataFakultas') }}">Fakultas</a> dan <a
-                                        href="pageDataJenjang">Jenjang</a></p>
-                            </div> --}}
-                    </div>
-                    <!-- /.card-body -->
-
-                    <div class="card-footer">
-                        {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
                     </div>
                 </div>
             </div>

@@ -23,7 +23,6 @@
                     <div class="card-header">
                         <h3 class="card-title">Tambah Data Mahasiswa</h3>
                     </div>
-
                     <form action="{{ route('mahasiswa.insert') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
@@ -36,9 +35,9 @@
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Tahun</label>
                                 <div class="form-group">
-                                    <select class="custom-select rounded-1" id="exampleSelectRounded0"
-                                        name="id_tahun" style="background-color: white; color: black">
-                                        <option value="{{ $tahun->id_tahun }}">{{ $tahun->tahun }}
+                                    <select class="custom-select rounded-1" id="exampleSelectRounded0" name="id_tahun"
+                                        style="background-color: white; color: black">
+                                        <option value="{{ $calon->id_tahun }}">{{ $calon->tahun }}
                                         </option>
                                     </select>
                                 </div>
@@ -48,12 +47,38 @@
                                 <div class="form-group">
 
                                     <select class="custom-select rounded-1" id="exampleSelectRounded0"
-                                        name="statusMahasiswa">
-                                        <option value="1">Calon Mahasiswa</option>
-                                        <option value="2">Mahasiswa Aktif</option>
-                                        <option value="3">Mahasiswa Asing</option>
-                                        <option value="4">Sudah Lulus</option>
-                                        <option value="5">Sedang Menjalani Tugas Akhir</option>
+                                        name="statusMahasiswa" required>
+                                        @if ($calon->dataCalonMhs == null)
+                                            <option value="1">Calon Mahasiswa</option>
+                                        @else
+                                        @endif
+                                        @if ($aktif->dataMhsAktif == null)
+                                            <option value="2">Mahasiswa Aktif</option>
+                                        @else
+                                        @endif
+                                        @if ($asing->dataMhsAsing == null)
+                                            <option value="3">Mahasiswa Asing</option>
+                                        @else
+                                        @endif
+                                        @if ($lulus->dataMhsLulus == null)
+                                            <option value="4">Sudah Lulus</option>
+                                        @else
+                                        @endif
+                                        @if ($akhir->dataMhsAkhir == null)
+                                            <option value="5">Sedang Menjalani Tugas Akhir</option>
+                                        @else
+                                        @endif
+                                        @if (
+                                            $calon->dataCalonMhs != null &&
+                                                $aktif->dataMhsAktif != null &&
+                                                $asing->dataMhsAsing != null &&
+                                                $lulus->dataMhsLulus != null &&
+                                                $akhir->dataMhsAkhir != null)
+                                            <option value="6" aria-readonly="true">Semua Data di Tahun ini Telah di
+                                                Upload
+                                            </option>
+                                        @else
+                                        @endif
                                     </select>
                                 </div>
                             </div>
@@ -61,7 +86,7 @@
                                 <label for="file">File bukti (.pdf)</label>
                                 <div class="input-group w-auto">
                                     <div class="custom-file w-auto">
-                                        <input type="file" accept=".pdf" class="custom-file-input" name="file"
+                                        <input type="file" accept=".pdf" class="custom-file-input" name="bukti"
                                             id="file">
                                         <label class="custom-file-label" for="exampleInputFile">Tambahkan File
                                             Bukti</label>
@@ -91,7 +116,16 @@
                         <!-- /.card-body -->
 
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            @if (
+                                $calon->dataCalonMhs != null &&
+                                    $aktif->dataMhsAktif != null &&
+                                    $asing->dataMhsAsing != null &&
+                                    $lulus->dataMhsLulus != null &&
+                                    $akhir->dataMhsAkhir != null)
+                                <a href="{{ route('pageInputMahasiswa') }}" class="btn btn-danger">Kembali</a>
+                            @else
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            @endif
                         </div>
                     </form>
                 </div>

@@ -13,7 +13,7 @@ class MahasiswaController extends Controller
     {
         $statusMahasiswa = $request->statusMahasiswa;
         $id_tahun = $request->id_tahun;
-        $file = $request->file;
+        $file = $request->file('bukti');
         //input nang model data calon seng isine tahun ambe bukti
         //id data calon -> parameter importMahasiswa
 

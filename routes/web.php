@@ -32,6 +32,7 @@ Route::get('register', [PageController::class, 'register'])->name('register');
 Route::get('/', [PageController::class, 'login'])->name('login');
 Route::get('input-prodi', [PageController::class, 'pageInputProdi'])->name('pageInputProdi');
 Route::get('input-mahasiswa', [PageController::class, 'pageInputMahasiswa'])->name('pageInputMahasiswa');
+Route::get('info-mahasiswa/{id_tahun}', [PageController::class, 'pageInfoMahasiswa'])->name('pageInfoMahasiswa');
 Route::get('edit-mahasiswa/{id_tahun}', [PageController::class, 'pageEditMahasiswa'])->name('pageEditMahasiswa');
 Route::get('add-mahasiswa/{id_tahun}', [PageController::class, 'pageAddMahasiswa'])->name('pageAddMahasiswa');
 

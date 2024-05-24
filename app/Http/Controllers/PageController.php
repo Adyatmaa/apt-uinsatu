@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataCalonMahasiswa;
 use App\Models\DetailCalonMahasiswa;
 use App\Models\DetailMahasiswaAktif;
 use App\Models\DetailMhsAsing;
@@ -101,21 +102,40 @@ class PageController extends Controller
 
     function pageInputMahasiswa()
     {
-        // $prodi = MProdi::all();
         $tahun = MTahun::all();
+
         return view('admin.input.inputMahasiswa', compact('tahun'));
     }
-    
+
+    function pageInfoMahasiswa($id)
+    {
+        $tahun = MTahun::findOrFail($id);
+        $calon = MTahun::with('dataCalonMhs')->findOrFail($id);
+        $aktif = MTahun::with('dataMhsAktif')->findOrFail($id);
+        $asing = MTahun::with('dataMhsAsing')->findOrFail($id);
+        $lulus = MTahun::with('dataMhsLulus')->findOrFail($id);
+        $akhir = MTahun::with('dataMhsAkhir')->findOrFail($id);
+        $status = ['Calon Mahasiswa', 'Mahasiswa Aktif', 'Mahasiswa Asing', 'Mahasiswa Lulus', 'Mahasiswa Tugas Akhir'];
+
+        return view('admin.input.infoMhs', compact('tahun', 'calon', 'aktif', 'asing', 'lulus', 'akhir', 'status'));
+    }
+
     function pageEditMahasiswa($id)
     {
         $tahun = MTahun::findOrFail($id);
         return view('admin.input.editMhs', compact('tahun'));
     }
-    
+
     function pageAddMahasiswa($id)
     {
-        $tahun = MTahun::findOrFail($id);
-        return view('admin.input.addMhs', compact('tahun'));
+        // $tahun = MTahun::findOrFail($id);
+        $calon = MTahun::with('dataCalonMhs.detailCalonMhs')->findOrFail($id);
+        $aktif = MTahun::with('dataMhsAktif.detailMhsAktif')->findOrFail($id);
+        $asing = MTahun::with('dataMhsAsing.detailMhsAsing')->findOrFail($id);
+        $lulus = MTahun::with('dataMhsLulus.detailMhsLulus')->findOrFail($id);
+        $akhir = MTahun::with('dataMhsAkhir.detailMhsAkhir')->findOrFail($id);
+        // dd($calon->dataCalonMhs->detailCalonMhs);
+        return view('admin.input.addMhs', compact('calon', 'aktif', 'asing', 'lulus', 'akhir'));
     }
 
     function pageInputTendik()

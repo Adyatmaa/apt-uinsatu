@@ -32,14 +32,16 @@ class ImportMahasiswa implements ToCollection
     public function collection(Collection $collection)
     {
         if ($this->statusMahasiswa == 1) {
+            $filePath = $this->file->store('public/bukti');
+            
             $dataCalonMhs = new DataCalonMahasiswa();
             $dataCalonMhs->id_tahun = $this->id_tahun;
-            // $dataCalonMhs->bukti = $file;
+            $dataCalonMhs->bukti = $filePath;
             $dataCalonMhs->save();
 
             foreach ($collection->slice(1) as $row) {
 
-                $detail['id_data_calon_mahasiswa'] = $dataCalonMhs->id;
+                $detail['id_data_calon_mahasiswa'] = $dataCalonMhs->id_data_calon_mahasiswa;
                 $detail['id_prodi'] = $row[0];
                 $detail['daya_tampung'] = $row[1];
                 $detail['pendaftar'] = $row[2];
@@ -50,135 +52,74 @@ class ImportMahasiswa implements ToCollection
                 DetailCalonMahasiswa::create($detail);
             }
         } else if ($this->statusMahasiswa == 2) {
+            $filePath = $this->file->store('public/bukti');
+            
+            $dataMhsAktif = new DataMahasiswaAktif();
+            $dataMhsAktif->id_tahun = $this->id_tahun;
+            $dataMhsAktif->bukti = $filePath;
+            $dataMhsAktif->save();
 
             foreach ($collection->slice(1) as $row) {
-                switch ($row[0]) {
-                    case '2020':
-                        $data['id_tahun'] = 1;
-                        break;
-                    case '2021':
-                        $data['id_tahun'] = 2;
-                        break;
-                    case '2022':
-                        $data['id_tahun'] = 3;
-                        break;
-                    case '2023':
-                        $data['id_tahun'] = 4;
-                        break;
-                    case '2024':
-                        $data['id_tahun'] = 5;
-                        break;
-                    default:
-                        $data['id_tahun'] = 'null';
-                        break;
-                }
 
-                $dataMahasiswaAktif = DataMahasiswaAktif::create($data);
-
-                $detail['id_data_mhs_aktif'] = $dataMahasiswaAktif->id;
-                $detail['id_prodi'] = $row[1];
-                $detail['jml_mhs_aktif'] = $row[2];
-                $detail['jml_mhs_transfer'] = $row[3];
+                $detail['id_data_mhs_aktif'] = $dataMhsAktif->id_data_mhs_aktif;
+                $detail['id_prodi'] = $row[0];
+                $detail['jml_mhs_aktif'] = $row[1];
+                $detail['jml_mhs_transfer'] = $row[2];
 
                 DetailMahasiswaAktif::create($detail);
             }
         } else if ($this->statusMahasiswa == 3) {
+            $filePath = $this->file->store('public/bukti');
+
+            $dataMhsAsing = new DataMhsAsing();
+            $dataMhsAsing->id_tahun = $this->id_tahun;
+            $dataMhsAsing->bukti = $filePath;
+            $dataMhsAsing->save();
 
             foreach ($collection->slice(1) as $row) {
-                switch ($row[0]) {
-                    case '2020':
-                        $data['id_tahun'] = 1;
-                        break;
-                    case '2021':
-                        $data['id_tahun'] = 2;
-                        break;
-                    case '2022':
-                        $data['id_tahun'] = 3;
-                        break;
-                    case '2023':
-                        $data['id_tahun'] = 4;
-                        break;
-                    case '2024':
-                        $data['id_tahun'] = 5;
-                        break;
-                    default:
-                        $data['id_tahun'] = 'null';
-                        break;
-                }
 
-                $dataMhsAsing = DataMhsAsing::create($data);
-
-                $detail['id_data_mhs_asing'] = $dataMhsAsing->id;
-                $detail['id_prodi'] = $row[1];
-                $detail['jml_mhs_asing'] = $row[2];
+                $detail['id_data_mhs_asing'] = $dataMhsAsing->id_data_mhs_asing;
+                $detail['id_prodi'] = $row[0];
+                $detail['jml_mhs_asing'] = $row[1];
 
                 DetailMhsAsing::create($detail);
             }
         } else if ($this->statusMahasiswa == 4) {
+            $filePath = $this->file->store('public/bukti');
+            
+            $dataMhsLulus = new DataMhsLulus();
+            $dataMhsLulus->id_tahun = $this->id_tahun;
+            $dataMhsLulus->bukti = $filePath;
+            $dataMhsLulus->save();
 
             foreach ($collection->slice(1) as $row) {
-                switch ($row[0]) {
-                    case '2020':
-                        $data['id_tahun'] = 1;
-                        break;
-                    case '2021':
-                        $data['id_tahun'] = 2;
-                        break;
-                    case '2022':
-                        $data['id_tahun'] = 3;
-                        break;
-                    case '2023':
-                        $data['id_tahun'] = 4;
-                        break;
-                    case '2024':
-                        $data['id_tahun'] = 5;
-                        break;
-                    default:
-                        $data['id_tahun'] = 'null';
-                        break;
-                }
 
-                $dataMhsLulus = DataMhsLulus::create($data);
-
-                $detail['id_data_mhs_lulus'] = $dataMhsLulus->id;
-                $detail['id_prodi'] = $row[1];
-                $detail['jml_lulusan'] = $row[2];
-                $detail['rerata_ipk'] = $row[3];
-                $detail['rerata_masa_studi'] = $row[4];
+                $detail['id_data_mhs_lulus'] = $dataMhsLulus->id_data_mhs_lulus;
+                $detail['id_prodi'] = $row[0];
+                $detail['jml_lulusan'] = $row[1];
+                $detail['rerata_ipk'] = $row[2];
+                $detail['rerata_masa_studi'] = $row[3];
 
                 DetailMhsLulus::create($detail);
             }
         } else if ($this->statusMahasiswa == 5) {
+            $filePath = $this->file->store('public/bukti');
+            
+            $dataMhsTugasAkhir = new DataMhsTugasAkhir();
+            $dataMhsTugasAkhir->id_tahun = $this->id_tahun;
+            $dataMhsTugasAkhir->bukti = $filePath;
+            $dataMhsTugasAkhir->save();
+
             foreach ($collection->slice(1) as $row) {
-                switch ($row[0]) {
-                    case '2020':
-                        $data['id_tahun'] = 1;
-                        break;
-                    case '2021':
-                        $data['id_tahun'] = 2;
-                        break;
-                    case '2022':
-                        $data['id_tahun'] = 3;
-                        break;
-                    case '2023':
-                        $data['id_tahun'] = 4;
-                        break;
-                    case '2024':
-                        $data['id_tahun'] = 5;
-                        break;
-                    default:
-                        $data['id_tahun'] = 'null';
-                        break;
-                }
 
-                $dataMhsTugasAkhir = DataMhsTugasAkhir::create($data);
-
-                $detail['id_data_mhs_tugas_akhir'] = $dataMhsTugasAkhir->id;
-                $detail['id_prodi'] = $row[1];
-                $detail['jml_mhs_tugas_akhir'] = $row[2];
+                $detail['id_data_mhs_tugas_akhir'] = $dataMhsTugasAkhir->id_data_mhs_tugas_akhir;
+                $detail['id_prodi'] = $row[0];
+                $detail['jml_mhs_tugas_akhir'] = $row[1];
 
                 DetailMhsTugasAkhir::create($detail);
             }
+        } else {
+            return redirect(route('pageInputMahasiswa'));
         }
     }
 }

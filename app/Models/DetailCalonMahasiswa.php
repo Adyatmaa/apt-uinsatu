@@ -9,7 +9,7 @@ class DetailCalonMahasiswa extends Model
 {
     use HasFactory;
     protected $table = 'detail_data_calon_mahasiswa';
-    protected $primarykey = 'id_detail_data_calon_mahasiswa';
+    protected $primaryKey = 'id_detail_data_calon_mahasiswa';
     public $timestamps = false;
     protected $fillable = [
         'id_data_calon_mahasiswa',
@@ -24,5 +24,10 @@ class DetailCalonMahasiswa extends Model
     public function prodi()
     {
         return $this->belongsTo(MProdi::class, 'id_prodi');
+    }
+
+    public function dataCalonMhs()
+    {
+        return $this->belongsTo(DataCalonMahasiswa::class, 'id_data_calon_mahasiswa', 'id_data_calon_mahasiswa');
     }
 }
