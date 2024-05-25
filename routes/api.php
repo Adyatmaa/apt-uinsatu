@@ -22,12 +22,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('dosen', [ApiController::class, 'dosen']);
 Route::get('tendik', [ApiController::class, 'tendik']);
 Route::get('akreditasi', [ApiController::class, 'akreditasi']);
-Route::get('list-dosen', [ApiController::class, 'listDosen']);
 Route::get('list-tendik', [ApiController::class, 'listTendik']);
 Route::get('list-fakultas', [ApiController::class, 'listFakultas']);
+
+Route::get('list-jenjang', [ApiController::class, 'listJenjang']);
 Route::get('list-prodi', [ApiController::class, 'listProdi']);
 
-Route::get('calon-mhs',[ApiController::class, 'listcalonmhs']);
-Route::get('calon-mhs',[ApiController::class, 'listCalonMhsByProdi']);
+Route::get('calon-mhs', [ApiController::class, 'listcalonmhs']);
+Route::get('calon-mhs', [ApiController::class, 'listCalonMhsByProdi']);
 
-Route::get('mhs-asing',[ApiController::class, 'listMhsAsing']);
+Route::get('mhs-asing', [ApiController::class, 'listMhsAsing']);
+
+Route::get('dosen-homebase', [ApiController::class, 'dosenHomebase']);
+Route::get('dosen-jabatan-akademik', [ApiController::class, 'dosenJabatanAkademik']);
+Route::get('dosen-pendidikan-akhir', [ApiController::class, 'dosenPendidikanAkhir']);
+Route::get('dosen-status-sertifikasi', [ApiController::class, 'dosenBersertifikat']);
+Route::get('dosen-tidak-tetap', [ApiController::class, 'dosenTidakTetap']);
