@@ -22,7 +22,7 @@ class MProdi extends Model
 
     public function jenjang()
     {
-        return $this->belongsTo(MJenjang::class, 'id_jenjang');
+        return $this->belongsTo(MJenjang::class, 'id_jenjang', 'id_jenjang');
     }
 
     public function fakultas()
@@ -32,7 +32,7 @@ class MProdi extends Model
 
     public function akreditasi()
     {
-        return $this->belongsTo(MAkreditasi::class, 'id_akreditasi');
+        return $this->belongsTo(MAkreditasi::class, 'id_akreditasi', 'id_akreditasi');
     }
 
     public function dosen()

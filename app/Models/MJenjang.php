@@ -17,7 +17,7 @@ class MJenjang extends Model
 
     public function prodi()
     {
-        return $this->hasMany(MProdi::class, 'id_jenjang');
+        return $this->hasMany(MProdi::class, 'id_jenjang' ,'id_jenjang');
     }
 
 }

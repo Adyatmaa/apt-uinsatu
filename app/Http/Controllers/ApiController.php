@@ -13,6 +13,7 @@ use App\Models\MFakultas;
 use App\Models\MJabatan_aka_dsn;
 use App\Models\MJenjang;
 use App\Models\MProdi;
+use GuzzleHttp\RetryMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -61,9 +62,68 @@ class ApiController extends Controller
             // Mengembalikan pesan error dalam format JSON dengan kode status 500 (Internal Server Error)
             return response()->json([
                 'success' => false,
-                'message' => 'Terjadi kesalahan saat mengambil data tendik',
+                'message' => 'Terjadi kesalahan saat mengambil data',
                 'error' => $e->getMessage()
             ], 500);
+        }
+    }
+
+    public function akreditasiByJenjang()
+    {
+        try {
+            $count = MProdi::select('id_jenjang', 'id_akreditasi', DB::raw('count(*) as jml'))
+                ->groupBy('id_jenjang', 'id_akreditasi')
+                ->with(['jenjang', 'akreditasi'])
+                ->get()
+                ->groupBy('id_jenjang')
+                ->map(
+                    function ($group) {
+                        $jenjang = $group->first()->jenjang->nama_jenjang;
+                        $akreditasiCount = $group->mapWithKeys(
+                            function ($item) {
+                                return [
+                                    $item->akreditasi->akreditasi => $item->jml ?? 0
+                                ];
+                            }
+                        );
+                        return [
+                            'jenjang' => $jenjang,
+                            'akreditasi' => $akreditasiCount,
+                            'jumlah' => $group->sum('jml')
+                        ];
+                    }
+                );
+
+            $totalUnggul = $count->sum(function ($group) {
+                return $group['akreditasi']['Unggul'] ?? 0;
+            });
+            $totalA = $count->sum(function ($group) {
+                return $group['akreditasi']['A'] ?? 0;
+            });
+            $totalB = $count->sum(function ($group) {
+                return $group['akreditasi']['B'] ?? 0;
+            });
+            $totalBS = $count->sum(function ($group) {
+                return $group['akreditasi']['Baik Sekali'] ?? 0;
+            });
+            $totalBk = $count->sum(function ($group) {
+                return $group['akreditasi']['Baik'] ?? 0;
+            });
+
+            $totalData = $count->sum('jumlah');
+
+            return response()->json([
+                'success' => true,
+                'data' => $count->values(),
+                'total_data' => $totalData,
+                'total_akreditasi_unggul' => $totalUnggul,
+                'total_akreditasi_a' => $totalA,
+                'total_akreditasi_b' => $totalB,
+                'total_akreditasi_baik_sekali' => $totalBS,
+                'total_akreditasi_baik' => $totalBk,
+            ], 200);
+        } catch (\Throwable $th) {
+            //throw $th;
         }
     }
 
@@ -118,6 +178,8 @@ class ApiController extends Controller
             ], 500);
         }
     }
+
+
 
     public function listcalonmhs()
     {

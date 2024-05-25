@@ -17,6 +17,6 @@ class MAkreditasi extends Model
 
     public function prodi()
     {
-        return $this->hasMany(MProdi::class, 'id_akreditasi');
+        return $this->hasMany(MProdi::class, 'id_akreditasi', 'id_akreditasi');
     }
 }
