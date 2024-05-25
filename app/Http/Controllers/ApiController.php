@@ -71,50 +71,51 @@ class ApiController extends Controller
     public function akreditasiByJenjang()
     {
         try {
-            $count = MProdi::select('id_jenjang', 'id_akreditasi', DB::raw('count(*) as jml'))
-                ->groupBy('id_jenjang', 'id_akreditasi')
-                ->with(['jenjang', 'akreditasi'])
-                ->get()
-                ->groupBy('id_jenjang')
-                ->map(
-                    function ($group) {
-                        $jenjang = $group->first()->jenjang->nama_jenjang;
-                        $akreditasiCount = $group->mapWithKeys(
-                            function ($item) {
-                                return [
-                                    $item->akreditasi->akreditasi => $item->jml ?? 0
-                                ];
-                            }
-                        );
-                        return [
-                            'jenjang' => $jenjang,
-                            'akreditasi' => $akreditasiCount,
-                            'jumlah' => $group->sum('jml')
-                        ];
-                    }
-                );
+            $allAkreditasi = ['Unggul', 'A', 'B', 'Baik Sekali', 'Baik'];
 
-            $totalUnggul = $count->sum(function ($group) {
+            $prodiData = MProdi::with(['jenjang', 'akreditasi'])
+                ->select('id_jenjang', 'id_akreditasi', DB::raw('count(*) as jml'))
+                ->groupBy('id_jenjang', 'id_akreditasi')
+                ->get();
+
+            $groupedData = $prodiData->groupBy('id_jenjang')->map(function ($group) use ($allAkreditasi) {
+                $jenjang = $group->first()->jenjang->nama_jenjang;
+
+                $akreditasiCount = collect($allAkreditasi)->mapWithKeys(function ($akreditasi) use ($group) {
+                    $item = $group->firstWhere('akreditasi.akreditasi', $akreditasi);
+                    return [
+                        $akreditasi => $item->jml ?? 0
+                    ];
+                });
+
+                return [
+                    'jenjang' => $jenjang,
+                    'akreditasi' => $akreditasiCount,
+                    'jumlah' => $group->sum('jml')
+                ];
+            });
+
+            $totalUnggul = $groupedData->sum(function ($group) {
                 return $group['akreditasi']['Unggul'] ?? 0;
             });
-            $totalA = $count->sum(function ($group) {
+            $totalA = $groupedData->sum(function ($group) {
                 return $group['akreditasi']['A'] ?? 0;
             });
-            $totalB = $count->sum(function ($group) {
+            $totalB = $groupedData->sum(function ($group) {
                 return $group['akreditasi']['B'] ?? 0;
             });
-            $totalBS = $count->sum(function ($group) {
+            $totalBS = $groupedData->sum(function ($group) {
                 return $group['akreditasi']['Baik Sekali'] ?? 0;
             });
-            $totalBk = $count->sum(function ($group) {
+            $totalBk = $groupedData->sum(function ($group) {
                 return $group['akreditasi']['Baik'] ?? 0;
             });
 
-            $totalData = $count->sum('jumlah');
+            $totalData = $groupedData->sum('jumlah');
 
             return response()->json([
                 'success' => true,
-                'data' => $count->values(),
+                'data' => $groupedData->values(),
                 'total_data' => $totalData,
                 'total_akreditasi_unggul' => $totalUnggul,
                 'total_akreditasi_a' => $totalA,
@@ -122,6 +123,58 @@ class ApiController extends Controller
                 'total_akreditasi_baik_sekali' => $totalBS,
                 'total_akreditasi_baik' => $totalBk,
             ], 200);
+
+            //     $count = MProdi::select('id_jenjang', 'id_akreditasi', DB::raw('count(*) as jml'))
+            //         ->groupBy('id_jenjang', 'id_akreditasi')
+            //         ->with(['jenjang', 'akreditasi'])
+            //         ->get()
+            //         ->groupBy('id_jenjang')
+            //         ->map(
+            //             function ($group) {
+            //                 $jenjang = $group->first()->jenjang->nama_jenjang;
+            //                 $akreditasiCount = $group->mapWithKeys(
+            //                     function ($item) {
+            //                         return [
+            //                             $item->akreditasi->akreditasi => $item->jml ?? 0
+            //                         ];
+            //                     }
+            //                 );
+            //                 return [
+            //                     'jenjang' => $jenjang,
+            //                     'akreditasi' => $akreditasiCount,
+            //                     'jumlah' => $group->sum('jml')
+            //                 ];
+            //             }
+            //         );
+
+            //     $totalUnggul = $count->sum(function ($group) {
+            //         return $group['akreditasi']['Unggul'] ?? 0;
+            //     });
+            //     $totalA = $count->sum(function ($group) {
+            //         return $group['akreditasi']['A'] ?? 0;
+            //     });
+            //     $totalB = $count->sum(function ($group) {
+            //         return $group['akreditasi']['B'] ?? 0;
+            //     });
+            //     $totalBS = $count->sum(function ($group) {
+            //         return $group['akreditasi']['Baik Sekali'] ?? 0;
+            //     });
+            //     $totalBk = $count->sum(function ($group) {
+            //         return $group['akreditasi']['Baik'] ?? 0;
+            //     });
+
+            //     $totalData = $count->sum('jumlah');
+
+            //     return response()->json([
+            //         'success' => true,
+            //         'data' => $count->values(),
+            //         'total_data' => $totalData,
+            //         'total_akreditasi_unggul' => $totalUnggul,
+            //         'total_akreditasi_a' => $totalA,
+            //         'total_akreditasi_b' => $totalB,
+            //         'total_akreditasi_baik_sekali' => $totalBS,
+            //         'total_akreditasi_baik' => $totalBk,
+            //     ], 200);
         } catch (\Throwable $th) {
             //throw $th;
         }
