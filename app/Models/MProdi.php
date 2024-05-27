@@ -43,7 +43,8 @@ class MProdi extends Model
     {
         return $this->hasMany(DetailCalonMahasiswa::class, 'id_prodi');
     }
-    public function mhsAsing(){
-        return $this->hasMany(DetailMhsAsing::class,'id_prodi');
+    public function mhsAsing()
+    {
+        return $this->hasMany(DetailMhsAsing::class, 'id_prodi');
     }
 }

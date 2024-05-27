@@ -193,10 +193,10 @@ class ApiController extends Controller
         return new ApiResource(true, 'List Jenjang', $data);
     }
 
-    public function listProdi()
+    public function listProdi($id)
     {
-        $data = MProdi::all();
-        return new ApiResource(true, 'List Data Program Studi', $data);
+        $data = MProdi::where('id_jenjang', $id)->get();
+        return new ApiResource(true, 'List Data Program Studi Berdasarkan Jenjang', $data);
     }
 
     public function tendik()
