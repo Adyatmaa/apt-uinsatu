@@ -32,6 +32,10 @@ Route::get('list-prodi', [ApiController::class, 'listProdi']);
 Route::get('calon-mhs', [ApiController::class, 'listcalonmhs']);
 Route::get('calon-mhs', [ApiController::class, 'listCalonMhsByProdi']);
 
+Route::get('mhs-aktif', [ApiController::class, 'listMhsAktifByProdi']);
+
+Route::get('mhs-lulus', [ApiController::class, 'listMhsLulusByProdi']);
+
 Route::get('mhs-asing', [ApiController::class, 'listMhsAsing']);
 
 Route::get('dosen-homebase', [ApiController::class, 'dosenHomebase']);

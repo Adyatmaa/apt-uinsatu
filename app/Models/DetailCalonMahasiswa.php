@@ -23,7 +23,7 @@ class DetailCalonMahasiswa extends Model
 
     public function prodi()
     {
-        return $this->belongsTo(MProdi::class, 'id_prodi');
+        return $this->belongsTo(MProdi::class, 'id_prodi','id_prodi');
     }
 
     public function dataCalonMhs()
