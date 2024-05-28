@@ -29,16 +29,12 @@ Route::get('list-fakultas', [ApiController::class, 'listFakultas']);
 Route::get('list-jenjang', [ApiController::class, 'listJenjang']);
 Route::get('list-prodi/{id}', [ApiController::class, 'listProdi']);
 
-Route::get('calon-mhs', [ApiController::class, 'listcalonmhs']);
 Route::get('calon-mhs', [ApiController::class, 'listCalonMhsByProdi']);
+Route::get('mhs-aktif', [ApiController::class, 'listMhsAktifByProdi']);
+Route::get('mhs-lulus', [ApiController::class, 'listMhsLulusByProdi']);
 
 Route::get('mhs-asing', [ApiController::class, 'mhsAsing']);
 Route::get('mhs-tugas-akhir', [ApiController::class, 'mhsTugasAkhir']);
-Route::get('mhs-aktif', [ApiController::class, 'listMhsAktifByProdi']);
-
-Route::get('mhs-lulus', [ApiController::class, 'listMhsLulusByProdi']);
-
-Route::get('mhs-asing', [ApiController::class, 'listMhsAsing']);
 
 Route::get('dosen-homebase', [ApiController::class, 'dosenHomebase']);
 Route::get('dosen-jabatan-akademik', [ApiController::class, 'dosenJabatanAkademik']);

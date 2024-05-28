@@ -181,17 +181,6 @@ class ApiController extends Controller
         }
     }
 
-
-
-    public function listcalonmhs()
-    {
-
-        $data = DetailCalonMahasiswa::all();
-
-        //return collection of posts as a resource
-        return new ApiResource(true, 'List Data Calon Mahasiswa', $data);
-    }
-
     public function listCalonMhsByProdi(Request $request)
     {
 
@@ -298,16 +287,7 @@ class ApiController extends Controller
         }
 
     }
-    public function listMhsAsing(Request $request)
-    {
-        $query = DetailMhsAsing::query();
-
-        $data = $query->where($request->id_prodi);
-
-        //return collection of posts as a resource
-        // return new ApiResource(true, 'List Data Calon Mahasiswa', $data);
-
-    }
+    
 
     public function dosenJabatanAkademik()
     {
