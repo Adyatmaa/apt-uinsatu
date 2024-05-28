@@ -142,10 +142,10 @@ class ApiController extends Controller
         return new ApiResource(true, 'List Jenjang', $data);
     }
 
-    public function listProdi()
+    public function listProdi($id)
     {
-        $data = MProdi::all();
-        return new ApiResource(true, 'List Data Program Studi', $data);
+        $data = MProdi::where('id_jenjang', $id)->get();
+        return new ApiResource(true, 'List Data Program Studi Berdasarkan Jenjang', $data);
     }
 
     public function tendik()
@@ -194,41 +194,28 @@ class ApiController extends Controller
 
     public function listCalonMhsByProdi(Request $request)
     {
-        $query = DetailCalonMahasiswa::query();
-        $prodi = MProdi::find($request->id_prodi);
-        $jenjang = MJenjang::find($request->id_jenjang);
 
         try {
             // filter prodi
             if ($request->has('id_prodi')) {
-                $query->where('id_prodi', $request->id_prodi);
+                // $data = $queryDetail->with('prodi').with('dataCalonMhs')->where('id_prodi', $request->id_prodi)->get();
+                $dataCalon = DB::table('detail_data_calon_mahasiswa')
+                    ->select('m_tahun.tahun as tahun', 'detail_data_calon_mahasiswa.*')
+                    ->leftJoin('data_calon_mahasiswa', 'data_calon_mahasiswa.id_data_calon_mahasiswa', '=', 'detail_data_calon_mahasiswa.id_data_calon_mahasiswa')
+                    ->leftJoin('m_tahun', 'm_tahun.id_tahun', '=', 'data_calon_mahasiswa.id_tahun')
+                    ->where('detail_data_calon_mahasiswa.id_prodi', '=', $request->id_prodi)
+                    ->get()
+                    ->map(function ($mhs) {
+                        return [
+                            'tahun' => $mhs->tahun,
+                            'daya_tampung' => $mhs->daya_tampung,
+                            'pendaftar' => $mhs->pendaftar,
+                            'lulus_seleksi' => $mhs->lulus_seleksi,
+
+                        ];
+                    });
             }
 
-            // filter jenjang
-            if ($request->has('id_jenjang')) {
-                $query->whereHas('prodi', function ($q) use ($request) {
-                    $q->where('id_jenjang', $request->id_jenjang);
-                });
-            }
-
-            $dataCalon = $query->with(['prodi.jenjang'])->get();
-            //     ->map(function ($item) {
-            //         return [
-            //             'daya_tampung' => $item->daya_tampung,
-            //             'pendaftar' => $item->pendaftar,
-            //             'lulus_seleksi' => $item->lulus_seleksi,
-            //         ];
-            //     }
-            // );
-            // dd($dataCalon);
-
-            if (count($dataCalon) < 1) {
-                return response()->json([
-                    'success' => true,
-                    'message' => 'Prodi ' . $prodi->nama_prodi . ' belum memiliki program ' . $jenjang->nama_jenjang
-
-                ], 200);
-            }
             return response()->json([
                 'success' => true,
                 'data' => $dataCalon
@@ -236,7 +223,7 @@ class ApiController extends Controller
             ], 200);
         } catch (\Exception $e) {
             return response()->json([
-                'succes' => true,
+                'succes' => false,
                 'message' => 'Terjadi kesalahan',
                 'error' => $e->getMessage()
 
@@ -244,6 +231,84 @@ class ApiController extends Controller
         }
     }
     
+
+    public function listMhsAktifByProdi(Request $request)
+    {
+        try {
+            if ($request->has('id_prodi')) {
+                $mhsAktif = DB::table('detail_data_mhs_aktif')
+                    ->select('m_tahun.tahun as tahun', 'detail_data_mhs_aktif.*')
+                    ->leftJoin('data_mhs_aktif', 'data_mhs_aktif.id_data_mhs_aktif', '=', 'detail_data_mhs_aktif.id_data_mhs_aktif')
+                    ->leftJoin('m_tahun', 'm_tahun.id_tahun', '=', 'data_mhs_aktif.id_tahun')
+                    ->where('detail_data_mhs_aktif.id_prodi', $request->id_prodi)
+                    ->get();
+            }
+            if ($mhsAktif->isEmpty()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Data masih kosong!'
+
+                ], 404);
+            }
+            return response()->json([
+                'success' => true,
+                'data' => $mhsAktif
+
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'succes' => false,
+                'message' => 'Terjadi kesalahan',
+                'error' => $e->getMessage()
+
+            ], 500);
+        }
+
+    }
+    public function listMhsLulusByProdi(Request $request)
+    {
+        try {
+            if ($request->has('id_prodi')) {
+                $mhsLulus = DB::table('detail_data_mhs_lulus')
+                    ->select('m_tahun.tahun as tahun', 'detail_data_mhs_lulus.*')
+                    ->leftJoin('data_mhs_lulus', 'data_mhs_lulus.id_data_mhs_lulus', '=', 'detail_data_mhs_lulus.id_data_mhs_lulus')
+                    ->leftJoin('m_tahun', 'm_tahun.id_tahun', '=', 'data_mhs_lulus.id_tahun')
+                    ->where('detail_data_mhs_lulus.id_prodi', $request->id_prodi)
+                    ->get();
+            }
+            if ($mhsLulus->isEmpty()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Data masih kosong!'
+
+                ], 404);
+            }
+            return response()->json([
+                'success' => true,
+                'data' => $mhsLulus
+
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'succes' => false,
+                'message' => 'Terjadi kesalahan',
+                'error' => $e->getMessage()
+
+            ], 500);
+        }
+
+    }
+    public function listMhsAsing(Request $request)
+    {
+        $query = DetailMhsAsing::query();
+
+        $data = $query->where($request->id_prodi);
+
+        //return collection of posts as a resource
+        // return new ApiResource(true, 'List Data Calon Mahasiswa', $data);
+
+    }
+
     public function dosenJabatanAkademik()
     {
         $counts = DtDosen::select('id_jabatan_akademik_dosen', 'id_pendidikan_terakhir', DB::raw('count(*) as jumlah'))
