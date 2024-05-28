@@ -219,7 +219,6 @@ class ApiController extends Controller
             ], 500);
         }
     }
-    
 
     public function listMhsAktifByProdi(Request $request)
     {
@@ -254,6 +253,7 @@ class ApiController extends Controller
         }
 
     }
+    
     public function listMhsLulusByProdi(Request $request)
     {
         try {
@@ -275,6 +275,74 @@ class ApiController extends Controller
             return response()->json([
                 'success' => true,
                 'data' => $mhsLulus
+
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'succes' => false,
+                'message' => 'Terjadi kesalahan',
+                'error' => $e->getMessage()
+
+            ], 500);
+        }
+
+    }
+    
+    public function listMhsAsingByProdi(Request $request)
+    {
+        try {
+            if ($request->has('id_prodi')) {
+                $mhsAsing = DB::table('detail_data_mhs_asing')
+                    ->select('m_tahun.tahun as tahun', 'detail_data_mhs_asing.*')
+                    ->leftJoin('data_mhs_asing', 'data_mhs_asing.id_data_mhs_asing', '=', 'detail_data_mhs_asing.id_data_mhs_asing')
+                    ->leftJoin('m_tahun', 'm_tahun.id_tahun', '=', 'data_mhs_asing.id_tahun')
+                    ->where('detail_data_mhs_asing.id_prodi', $request->id_prodi)
+                    ->get();
+            }
+            if ($mhsAsing->isEmpty()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Data masih kosong!'
+
+                ], 404);
+            }
+            return response()->json([
+                'success' => true,
+                'data' => $mhsAsing
+
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'succes' => false,
+                'message' => 'Terjadi kesalahan',
+                'error' => $e->getMessage()
+
+            ], 500);
+        }
+
+    }
+    
+    public function listMhsAkhirByProdi(Request $request)
+    {
+        try {
+            if ($request->has('id_prodi')) {
+                $mhsAkhir = DB::table('detail_data_mhs_tugas_akhir')
+                    ->select('m_tahun.tahun as tahun', 'detail_data_mhs_tugas_akhir.*')
+                    ->leftJoin('data_mhs_tugas_akhir', 'data_mhs_tugas_akhir.id_data_mhs_tugas_akhir', '=', 'detail_data_mhs_tugas_akhir.id_data_mhs_tugas_akhir')
+                    ->leftJoin('m_tahun', 'm_tahun.id_tahun', '=', 'data_mhs_tugas_akhir.id_tahun')
+                    ->where('detail_data_mhs_tugas_akhir.id_prodi', $request->id_prodi)
+                    ->get();
+            }
+            if ($mhsAkhir->isEmpty()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Data masih kosong!'
+
+                ], 404);
+            }
+            return response()->json([
+                'success' => true,
+                'data' => $mhsAkhir
 
             ], 200);
         } catch (\Exception $e) {
