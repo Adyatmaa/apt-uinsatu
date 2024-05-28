@@ -6,6 +6,7 @@ use App\Http\Resources\ApiResource;
 use App\Models\DataCalonMahasiswa;
 use App\Models\DetailCalonMahasiswa;
 use App\Models\DetailMhsAsing;
+use App\Models\DetailMhsTugasAkhir;
 use App\Models\DtDosen;
 use App\Models\DTendik;
 use App\Models\MAkreditasi;
@@ -123,58 +124,6 @@ class ApiController extends Controller
                 'total_akreditasi_baik_sekali' => $totalBS,
                 'total_akreditasi_baik' => $totalBk,
             ], 200);
-
-            //     $count = MProdi::select('id_jenjang', 'id_akreditasi', DB::raw('count(*) as jml'))
-            //         ->groupBy('id_jenjang', 'id_akreditasi')
-            //         ->with(['jenjang', 'akreditasi'])
-            //         ->get()
-            //         ->groupBy('id_jenjang')
-            //         ->map(
-            //             function ($group) {
-            //                 $jenjang = $group->first()->jenjang->nama_jenjang;
-            //                 $akreditasiCount = $group->mapWithKeys(
-            //                     function ($item) {
-            //                         return [
-            //                             $item->akreditasi->akreditasi => $item->jml ?? 0
-            //                         ];
-            //                     }
-            //                 );
-            //                 return [
-            //                     'jenjang' => $jenjang,
-            //                     'akreditasi' => $akreditasiCount,
-            //                     'jumlah' => $group->sum('jml')
-            //                 ];
-            //             }
-            //         );
-
-            //     $totalUnggul = $count->sum(function ($group) {
-            //         return $group['akreditasi']['Unggul'] ?? 0;
-            //     });
-            //     $totalA = $count->sum(function ($group) {
-            //         return $group['akreditasi']['A'] ?? 0;
-            //     });
-            //     $totalB = $count->sum(function ($group) {
-            //         return $group['akreditasi']['B'] ?? 0;
-            //     });
-            //     $totalBS = $count->sum(function ($group) {
-            //         return $group['akreditasi']['Baik Sekali'] ?? 0;
-            //     });
-            //     $totalBk = $count->sum(function ($group) {
-            //         return $group['akreditasi']['Baik'] ?? 0;
-            //     });
-
-            //     $totalData = $count->sum('jumlah');
-
-            //     return response()->json([
-            //         'success' => true,
-            //         'data' => $count->values(),
-            //         'total_data' => $totalData,
-            //         'total_akreditasi_unggul' => $totalUnggul,
-            //         'total_akreditasi_a' => $totalA,
-            //         'total_akreditasi_b' => $totalB,
-            //         'total_akreditasi_baik_sekali' => $totalBS,
-            //         'total_akreditasi_baik' => $totalBk,
-            //     ], 200);
         } catch (\Throwable $th) {
             //throw $th;
         }
@@ -294,17 +243,7 @@ class ApiController extends Controller
             ], 500);
         }
     }
-    public function listMhsAsing(Request $request)
-    {
-        $query = DetailMhsAsing::query();
-
-        $data = $query->where($request->id_prodi);
-
-        //return collection of posts as a resource
-        // return new ApiResource(true, 'List Data Calon Mahasiswa', $data);
-
-    }
-
+    
     public function dosenJabatanAkademik()
     {
         $counts = DtDosen::select('id_jabatan_akademik_dosen', 'id_pendidikan_terakhir', DB::raw('count(*) as jumlah'))
@@ -380,7 +319,8 @@ class ApiController extends Controller
         $counts = $dosen->map(function ($group) {
             $fakultas = $group->first()->prodi->fakultas->nama_fakultas;
 
-            $pendidikanCounts = $group->groupBy('id_pendidikan_terakhir')->mapWithKeys(function ($items, $key) {
+            $pendidikanCounts = $group->groupBy('id_pendidikan_terakhir')
+            ->mapWithKeys(function ($items, $key) {
                 $pendidikan = $items->first()->pendidikanTerakhir->pendidikan_terakhir;
                 return [$pendidikan => $items->count()];
             });
@@ -491,6 +431,74 @@ class ApiController extends Controller
             'total_data_S1' => $totalS1,
             'total_data_S2' => $totalS2,
             'total_data_S3' => $totalS3,
+        ], 200);
+    }
+    
+    public function mhsTugasAkhir()
+    {
+        $a = DetailMhsTugasAkhir::with('prodi.fakultas', 'dataMhsTugasAkhir.tahun')
+            ->get()
+            ->groupBy('id_data_mhs_tugas_akhir');
+
+        $mhs = $a->map(function($group) {
+            $data = $group->first()->dataMhsTugasAkhir->tahun->tahun;
+
+            $fakultasCount = $group->groupBy('prodi.fakultas.id_fakultas')
+            ->mapWithKeys(function ($items, $key) {
+                $fakultas = $items->first()->prodi->fakultas->nama_fakultas;
+                return [
+                    $fakultas => $items->sum('jml_mhs_tugas_akhir'),
+                ];
+            });
+
+            return [
+                'tahun' => $data,
+                'fakultas' => $fakultasCount,
+                'jumlah' => $fakultasCount->sum()
+            ];
+        })->values();
+
+        $sumall = $mhs->sum('jumlah');
+
+        return response()->json([
+            'success' => true,
+            'data' => $mhs,
+            'total' => $sumall,
+            // 'sum' => $sum,
+        ], 200);
+    }
+
+    public function mhsAsing()
+    {
+        $a = DetailMhsAsing::with('prodi.fakultas', 'dataMhsAsing.tahun')
+            ->get()
+            ->groupBy('id_data_mhs_asing');
+
+        $mhs = $a->map(function($group) {
+            $data = $group->first()->dataMhsAsing->tahun->tahun;
+
+            $fakultasCount = $group->groupBy('prodi.fakultas.id_fakultas')
+            ->mapWithKeys(function ($items, $key) {
+                $fakultas = $items->first()->prodi->fakultas->nama_fakultas;
+                return [
+                    $fakultas => $items->sum('jml_mhs_asing'),
+                ];
+            });
+
+            return [
+                'tahun' => $data,
+                'fakultas' => $fakultasCount,
+                'jumlah' => $fakultasCount->sum()
+            ];
+        })->values();
+
+        $sumall = $mhs->sum('jumlah');
+
+        return response()->json([
+            'success' => true,
+            'data' => $mhs,
+            'total' => $sumall,
+            // 'sum' => $sum,
         ], 200);
     }
 }

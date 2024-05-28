@@ -27,7 +27,7 @@ class MProdi extends Model
 
     public function fakultas()
     {
-        return $this->belongsTo(MFakultas::class, 'id_fakultas');
+        return $this->belongsTo(MFakultas::class, 'id_fakultas', 'id_fakultas');
     }
 
     public function akreditasi()
@@ -43,7 +43,12 @@ class MProdi extends Model
     {
         return $this->hasMany(DetailCalonMahasiswa::class, 'id_prodi');
     }
-    public function mhsAsing(){
-        return $this->hasMany(DetailMhsAsing::class,'id_prodi');
+    public function mhsAsing()
+    {
+        return $this->hasMany(DetailMhsAsing::class, 'id_prodi');
+    }
+    public function mhsAkhir()
+    {
+        return $this->hasMany(DetailMhsTugasAkhir::class, 'id_prodi', 'id_prodi');
     }
 }

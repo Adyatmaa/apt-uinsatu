@@ -20,6 +20,6 @@ class MFakultas extends Model
 
     public function prodi()
     {
-        return $this->hasMany(MProdi::class, 'id_fakultas');
+        return $this->hasMany(MProdi::class, 'id_fakultas', 'id_fakultas');
     }
 }

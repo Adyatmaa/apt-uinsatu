@@ -18,7 +18,7 @@ class DataMhsTugasAkhir extends Model
 
     public function tahun()
     {
-        return $this->belongsTo(MTahun::class, 'id_tahun');
+        return $this->belongsTo(MTahun::class, 'id_tahun', 'id_tahun');
     }
 
     public function detailMhsAkhir()

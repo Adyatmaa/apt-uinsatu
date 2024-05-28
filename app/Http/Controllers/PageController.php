@@ -68,7 +68,8 @@ class PageController extends Controller
         // Jika validasi berhasil, coba melakukan otentikasi
         if ($user = $this->customAuth($request->only(['nama_user', 'email']))) {
             // Jika otentikasi berhasil, simpan informasi pengguna ke sesi
-            session(['user' => $user]);
+            session(['user' => $user->nama_user]);
+            session(['role' => $user->is_admin]);
 
             // Arahkan pengguna ke halaman "dashboard"
             return redirect('dashboard');
